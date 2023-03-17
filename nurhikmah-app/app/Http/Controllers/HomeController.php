@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Siswa;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $siswa = Siswa::where('id', auth()->user()->id)->get()->all();
+        $users = User::all();
+        return view('home', compact('siswa', 'users'));
     }
 }

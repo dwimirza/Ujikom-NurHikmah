@@ -14,12 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view ('home');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/registerdata' , function () {
     return view ('register');
 });
 
-Route::get('/register' , function () {
-    return view ('register');
-});
-
-Route::post('/register', 'App\Http\Controllers\SiswaController@store');
-
+Route::post('/registerdata', 'App\Http\Controllers\SiswaController@store');
+Route::resource('siswa', 'App\Http\Controllers\SiswaController');
