@@ -73,9 +73,10 @@ class SiswaController extends Controller
         $path = $request->file('buktiPembayaran')->storeAs($destination_path, $image_name); //mengirimkan foto ke folder store
         $dataSiswa['buktiPembayaran'] = $image_name; //mengirimkan ke database
     }
-
-
+    $dataSiswa->save();
     Siswa::create($dataSiswa);
+
+    return redirect()->route('home')->with('success', 'Data Berhasil Ditambahkan');
 
 
 
