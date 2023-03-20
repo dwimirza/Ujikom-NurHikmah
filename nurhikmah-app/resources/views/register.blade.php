@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form method="POST" enctype="multipart/form-data" action="/register" class="col-md-3">
+    <form method="POST" enctype="multipart/form-data" action="{{route('siswa.store')}}" class="col-md-3">
         @csrf
         <label for="nama">Nama:</label>
         <input type="text" id="nama" name="nama" class="form-control"><br>
