@@ -49,7 +49,7 @@ class SiswaController extends Controller
     
     if($request->hasFile('kartuKeluarga'))
     {
-        $destination_path = 'public/images/'; //path tempat penyimpanan (storage/public/images/profile)
+        $destination_path = 'images/'; //path tempat penyimpanan (storage/public/images/)
         $image = $request -> file('kartuKeluarga'); //mengambil request column photo
         $image_name = $image->getClientOriginalName(); //memberikan nama gambar yang akan disimpan di foto
         $path = $request->file('kartuKeluarga')->storeAs($destination_path, $image_name); //mengirimkan foto ke folder store
@@ -58,7 +58,7 @@ class SiswaController extends Controller
 
     if($request->hasFile('akte'))
     {
-        $destination_path = 'public/images/'; //path tempat penyimpanan (storage/public/images/profile)
+        $destination_path = 'images/'; //path tempat penyimpanan (storage/public/images/)
         $image = $request -> file('akte'); //mengambil request column photo
         $image_name = $image->getClientOriginalName(); //memberikan nama gambar yang akan disimpan di foto
         $path = $request->file('akte')->storeAs($destination_path, $image_name); //mengirimkan foto ke folder store
@@ -67,13 +67,13 @@ class SiswaController extends Controller
 
     if($request->hasFile('buktiPembayaran'))
     {
-        $destination_path = 'public/images/'; //path tempat penyimpanan (storage/public/images/)
+        $destination_path = 'images/'; //path tempat penyimpanan (storage/public/images/)
         $image = $request -> file('buktiPembayaran'); //mengambil request column photo
         $image_name = $image->getClientOriginalName(); //memberikan nama gambar yang akan disimpan di foto
         $path = $request->file('buktiPembayaran')->storeAs($destination_path, $image_name); //mengirimkan foto ke folder store
         $dataSiswa['buktiPembayaran'] = $image_name; //mengirimkan ke database
     }
-    $dataSiswa->save();
+
     Siswa::create($dataSiswa);
 
     return redirect()->route('home')->with('success', 'Data Berhasil Ditambahkan');

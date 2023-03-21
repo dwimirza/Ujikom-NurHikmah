@@ -8,15 +8,36 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
                     
-
-                    {{ __('You are logged in!') }}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">Nama Ortu</th>
+                                <th scope="col">No. Ortu</th>
+                                <th scope="col">Kartu Keluarga</th>
+                                <th scope="col">Akte Kelahiran</th>
+                                <th scope="col">Bukti Pembayaran</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                        @foreach ($siswa ?? '' as $data)
+                            <tr>
+                                <th scope="row">{{$data->id}}</th>
+                                <td>{{$data->nama}}</td>
+                                <td>{{$data->namaOrtu}}</td>
+                                <td>{{$data->nomorOrtu}}</td>
+                                <td><img src="{{asset('/storage/images/'.$data->kartuKeluarga)}}" width="100px" ></td>
+                                <td><img src="{{asset('/storage/images/'.$data->akte)}}" width="100px" ></td>
+                                <td><img src="{{asset('/storage/images/'.$data->buktiPembayaran)}}" width="100px" ></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    
                 </div>
             </div>
         </div>
