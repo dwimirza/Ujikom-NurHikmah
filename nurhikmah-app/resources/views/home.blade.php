@@ -30,7 +30,9 @@
                                 <td>{{$data->nama}}</td>
                                 <td>{{$data->namaOrtu}}</td>
                                 <td>{{$data->nomorOrtu}}</td>
-                                <td><img src="{{asset('/storage/app/public/images/'.$data->kartuKeluarga)}}" width="100px" ></td>
+                                <td><img src="{{asset('/storage/images/'.$data->kartuKeluarga)}}" width="100px" ></td>
+                                <td><img src="{{asset('/storage/images/'.$data->akte)}}" width="100px" ></td>
+                                <td><img src="{{asset('/storage/images/'.$data->buktiPembayaran)}}" width="100px" ></td>
                             </tr>
                             @endforeach
                         </tbody>
