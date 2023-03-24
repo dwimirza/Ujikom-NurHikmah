@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        // $siswa = Siswa::where('id', auth()->user()->id)->get()->all();
-        $siswa = Siswa::all();
+        $siswa = Siswa::where('id', auth()->user()->id)->get()->all();
+        // $siswa = Siswa::all();
         $users = User::all();
         return view('home', compact('siswa', 'users'));
     }
