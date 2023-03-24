@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOpsiTable extends Migration
+class CreateJawabanBenarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateOpsiTable extends Migration
      */
     public function up()
     {
-        Schema::create('opsi', function (Blueprint $table) {
+        Schema::create('jawaban_benar', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("fk_id_correct")->unsigned();
+            $table->foreign("fk_id_correct")->references("id")->on("opsi")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateOpsiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opsi');
+        Schema::dropIfExists('jawaban_benar');
     }
 }
