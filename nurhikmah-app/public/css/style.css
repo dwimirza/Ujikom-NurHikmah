@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-navhome: #0D6C37;
+    --bg-navhome-gradient: #058F42;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: aqua; */
+}
+
+.navbar {
+    padding-top: 2.2rem;
+    background-color: var(--bg-navhome);
+}
+
+.container-nav {
+    /* padding-left: 6.25rem; */
+    padding: 0 6.25rem;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-link {
+    font-size: 1rem;
+}
+
+.navbar-nav {
+    padding-left: 5rem;
+}
+
+
+
+.header-content {
+    background: linear-gradient(var(--bg-navhome), var(--bg-navhome-gradient));
+    padding: 10.5rem 6.25rem 1rem;
+}
+
+.header {
+    width: 100vw;
+    height: fit-content;
+}
+
+.visi {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.btn-daftar {
+    text-decoration: none;
+    color: black;
+    background: white;
+    padding: .8rem 1.2rem;
+    border-radius: 1.25rem;
+}
+
+.btn-daftar:hover {
+    border: white 1px solid;
+    color: white;
+    background: none;
+}
+
+.img-header {
+    width: 30rem;
+    float: right;
+}
+
+.section {
+    max-height: 70vh;
+    margin-bottom: 8rem;
+}
+
+.title-content {
+    text-align: center;
+}
+
+.title-judul {
+    color: var(--bg-navhome);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.content-petunjuk {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container-petunjuk {
+    width: 24rem;
+    height: 22rem;
+    padding: 3.2rem;
+    /* padding: 8rem 7rem; */
+    border: var(--bg-navhome) 1px solid;
+    margin-top: 2.2rem;
+    border-radius: 1.25rem;
+    text-align: center;
+}
+
+.bi-tt {
+    font-size: 2.5rem;
+}
+
+.tt-seleksi {
+    color: var(--bg-navhome-gradient);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.desc-desk {
+    opacity: .6;
+}
+
+.swiper {
+    width: 100%;    
+
+}
+
+.swiper-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.swiper-slide {
+    min-height: 20.70rem;
+    flex-direction: column;
+    /* padding: 1.25rem 3rem; */
+    color: white;
+    background: var(--bg-navhome);
+    border-radius: 1.2rem;
+    width: 300px;
+}
+
+.bi-rotate{
+    font-size: 5rem;
+    opacity: .6;
+    transform: rotate(-180deg);
+    display: inline-block;
+}
+
+/* .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+
+/* .text-title{
+    font-size: 2em;
+} */
+
+.icf-links{
+    margin-top: 5px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+}
+
+.icf-links :hover{
+    color: yellow;
+}
+
+td{
+    color: white;
+}
+
+.img-footer{
+    width: 20rem;
+}
