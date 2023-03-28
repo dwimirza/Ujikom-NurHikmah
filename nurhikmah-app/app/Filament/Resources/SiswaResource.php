@@ -51,9 +51,9 @@ class SiswaResource extends Resource
                 Tables\Columns\TextColumn::make('nama'),
                 Tables\Columns\TextColumn::make('nomorOrtu'),
                 Tables\Columns\TextColumn::make('namaOrtu'),
-                Tables\Columns\TextColumn::make('kartuKeluarga'),
-                Tables\Columns\TextColumn::make('akte'),
-                Tables\Columns\TextColumn::make('buktiPembayaran'),
+                Tables\Columns\ImageColumn::make('kartuKeluarga')->disk('public'),
+                Tables\Columns\ImageColumn::make('akte'),
+                Tables\Columns\ImageColumn::make('buktiPembayaran'),
             ])
             ->filters([
                 //
