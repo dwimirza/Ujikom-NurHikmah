@@ -12,6 +12,8 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+
 
 class SiswaResource extends Resource
 {
@@ -31,12 +33,9 @@ class SiswaResource extends Resource
                 Forms\Components\TextInput::make('namaOrtu')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('kartuKeluarga')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('akte')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('buktiPembayaran')
-                    ->maxLength(255),
+                Tables\Columns\ImageColumn::make('kartuKeluarga')->disk('images'),
+                Tables\Columns\ImageColumn::make('akte')->disk('images'),
+                Tables\Columns\ImageColumn::make('buktiPembayaran')->disk('images')
             ]);
     }
 
@@ -46,14 +45,12 @@ class SiswaResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
                 Tables\Columns\TextColumn::make('nama'),
                 Tables\Columns\TextColumn::make('nomorOrtu'),
                 Tables\Columns\TextColumn::make('namaOrtu'),
-                Tables\Columns\ImageColumn::make('kartuKeluarga')->disk('public'),
-                Tables\Columns\ImageColumn::make('akte'),
-                Tables\Columns\ImageColumn::make('buktiPembayaran'),
+                Tables\Columns\ImageColumn::make('kartuKeluarga')->disk('images'),
+                Tables\Columns\ImageColumn::make('akte')->disk('images'),
+                Tables\Columns\ImageColumn::make('buktiPembayaran')->disk('images'),
             ])
             ->filters([
                 //
@@ -77,8 +74,13 @@ class SiswaResource extends Resource
     {
         return [
             'index' => Pages\ListSiswas::route('/'),
-            'create' => Pages\CreateSiswa::route('/create'),
             'edit' => Pages\EditSiswa::route('/{record}/edit'),
         ];
     }    
+
+    public static function canCreate(): bool
+    {
+       return false;
+    }
+    
 }
