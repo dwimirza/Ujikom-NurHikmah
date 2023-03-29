@@ -35,21 +35,21 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid container-nav">
-            <a class="navbar-brand text-uppercase" href="#">Smpit Nur Hikmah</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            <a class="navbar-brand text-uppercase me-4" href="#">Smpit Nur Hikmah</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav gap-4">
+                <ul class="navbar-nav gap-4  text-center">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">PPDB</a>
+                        <a class="nav-link" href="{{route('siswa.store')}}">PPDB</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Tentang Kami</a>
+                        <a class="nav-link" href="#tahapan">Tahapan Seleksi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Kontak</a>
+                        <a class="nav-link" href="#footer">Kontak</a>
                     </li>
                 </ul>
             </div>
@@ -62,15 +62,15 @@
 
     <section class="header" id="header">
         <div class="header-content container-fluid">
-            <div class="row">
-                <div class="col-md-6 text-white">
-                    <p style="font-size: 1.25rem;">Berakhlak | Mandiri | Berprestasi</p>
+            <div class="row rww">
+                <div class="col-md-6 center-costume text-white">
+                    <p class="desc-header">Berakhlak | Mandiri | Berprestasi</p>
                     <p class="visi">Mencetak generasi berakhlakul karimah, mandiri dan berprestasi akademik optimal</p>
-                    <p style="font-size: 1.25rem; margin-bottom: 2rem;">Menjadikan Nur Hikmah sebagai sekolah
+                    <p style="margin-bottom: 2rem;" class="desc-header">Menjadikan Nur Hikmah sebagai sekolah
                         percontohan & lembaga dakwah berbasis pendidikan</p>
-                    <a href="#" class="btn-daftar">Daftar Sekarang</a>
+                    <a href="{{route('siswa.store')}}" class="btn-daftar">Daftar Sekarang</a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 hidden-costume">
                     <img src="img/img-content-h.png" alt="img-content" class="img-header">
                 </div>
             </div>
@@ -84,31 +84,29 @@
     <!-- end header -->
 
     <!-- seleksi -->
-    <section class="section tahapan" id="tahan">
+    <section class="section tahapan " id="tahapan">
         <div class="container-nav">
             <div class="title-content">
                 <p class="title-judul">Tahapan Seleksi</p>
                 <p class="desc-desk">berikut merupakan tahapan yang harus dilalui ketika
                     mendaftar di SMPIT Nur Hikmah</p>
             </div>
-            <div class="content-petunjuk">
-                <div class="container-petunjuk ">
+            <div class="content-petunjuk row">
+                <div class="container-petunjuk col-md ">
                     <i class="bi bi-person-vcard bi-tt"></i>
-                    <p class="tt-seleksi">Daftar Ujian</p>
-                    <p style="text-transform: capitalize;">calon siswa akan <br> diminta untuk daftar dan <br>
-                        mengirimkan seluruh <br> bukti pembayaran <br> dan biodata </p>
+                    <p class="tt-seleksi m-0">Daftar Ujian</p>
+                    <p style="text-transform: capitalize;" class="desc-tahapan">calon siswa akan diminta untuk daftar dan
+                        mengirimkan seluruh bukti pembayaran dan biodata </p>
                 </div>
-                <div class="container-petunjuk ">
+                <div class="container-petunjuk col-md ">
                     <i class="bi bi-person-vcard bi-tt"></i>
-                    <p class="tt-seleksi">Ujian Seleksi</p>
-                    <p style="text-transform: capitalize;">calon siswa akan <br> diminta untuk daftar dan <br>
-                        mengirimkan seluruh <br> bukti pembayaran <br> dan biodata </p>
+                    <p class="tt-seleksi m-0">Ujian Seleksi</p>
+                    <p style="text-transform: capitalize;" class="desc-tahapan">Calon siswa diminta untuk mengerjakan soal terkait test kemampuan diri untuk memasuki smpit- nurhimah</p>
                 </div>
-                <div class="container-petunjuk ">
+                <div class="container-petunjuk col-md ">
                     <i class="bi bi-person-vcard bi-tt"></i>
-                    <p class="tt-seleksi">Pengumuman Penerimaan</p>
-                    <p style="text-transform: capitalize;">calon siswa akan <br> diminta untuk daftar dan <br>
-                        mengirimkan seluruh <br> bukti pembayaran <br> dan biodata </p>
+                    <p class="tt-seleksi m-0">Pengumuman Penerimaan</p>
+                    <p style="text-transform: capitalize;" class="desc-tahapan">Pengumuman hasil ujian yang akan diumumkan oleh pengurus PPDB lewat media tertentu dan waktu yang telah ditentukan</p>
                 </div>
             </div>
         </div>
@@ -117,15 +115,15 @@
     <!-- end seleksi -->
 
     <!-- testimoni -->
-    <section class="section testimoni">
+    <section class="section  testimoni">
         <div class="container-nav">
             <div class="row">
-                <div class="col-md-5 flex-row">
-                    <P class="title-judul">Pesan dari Guru</P>
-                    <p class="desc-desk fs-5">Pesan dari para Guru untuk calon siswa SMPIT Nur Hikmah </p>
+                <div class="col-lg-5 flex-row">
+                    <P class="title-judul center-respon">Pesan dari Guru</P>
+                    <p class="desc-desk fs-5 center-respon">Pesan dari para Guru untuk calon siswa SMPIT Nur Hikmah </p>
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-lg-7">
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
 
@@ -136,10 +134,10 @@
                                 </div>
                                 <div class="border"></div>
                                 <div class="swiper-bio d-flex align-items-center mt-3">
-                                    <img src="img/logo-nurhikmah.png" alt="" style="width: 4rem; border-radius: 20px;">
+                                    <img src="img/logo-nurhikmah.png" class="pp-guru" alt="">
                                     <div class="flex-row ms-4">
-                                        <p class="m-0 fs-5">Agusriwarman, SE. M.Pd.</p>
-                                        <p class="m-0 desc-desk">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
+                                        <p class="m-0 fs-guru">Agusriwarman, SE. M.Pd.</p>
+                                        <p class="m-0 desc-desk desc-jabatan">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
                                     </div>
                                 </div>
                             </div>
@@ -151,10 +149,10 @@
                                 </div>
                                 <div class="border"></div>
                                 <div class="swiper-bio d-flex align-items-center mt-3">
-                                    <img src="img/logo-nurhikmah.png" alt="" style="width: 4rem;">
+                                    <img src="img/logo-nurhikmah.png" class="pp-guru" alt="">
                                     <div class="flex-row ms-4">
-                                        <p class="m-0 fs-5">Agusriwarman, SE. M.Pd.</p>
-                                        <p class="m-0 desc-desk">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
+                                        <p class="m-0 fs-guru">Agusriwarman, SE. M.Pd.</p>
+                                        <p class="m-0 desc-desk desc-jabatan">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
                                     </div>
                                 </div>
                             </div>
@@ -166,10 +164,10 @@
                                 </div>
                                 <div class="border"></div>
                                 <div class="swiper-bio d-flex align-items-center mt-3">
-                                    <img src="img/logo-nurhikmah.png" alt="" style="width: 4rem;">
+                                    <img src="img/logo-nurhikmah.png" class="pp-guru" alt="">
                                     <div class="flex-row ms-4">
-                                        <p class="m-0 fs-5">Agusriwarman, SE. M.Pd.</p>
-                                        <p class="m-0 desc-desk">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
+                                        <p class="m-0 fs-guru">Agusriwarman, SE. M.Pd.</p>
+                                        <p class="m-0 desc-desk desc-jabatan">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
                                     </div>
                                 </div>
                             </div>
@@ -181,10 +179,10 @@
                                 </div>
                                 <div class="border"></div>
                                 <div class="swiper-bio d-flex align-items-center mt-3">
-                                    <img src="img/logo-nurhikmah.png" alt="" style="width: 4rem;">
+                                    <img src="img/logo-nurhikmah.png" class="pp-guru" alt="">
                                     <div class="flex-row ms-4">
-                                        <p class="m-0 fs-5">Agusriwarman, SE. M.Pd.</p>
-                                        <p class="m-0 desc-desk">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
+                                        <p class="m-0 fs-guru">Agusriwarman, SE. M.Pd.</p>
+                                        <p class="m-0 desc-desk desc-jabatan">Kepala Sekolah Ketiga SMPIT, Sejak 2021</p>
                                     </div>
                                 </div>
                             </div>
@@ -199,16 +197,16 @@
     </section>
     <!-- end testimoni -->
 
-    <section class="section footer m-0 p-0">
-        <div class="container-nav d-flex justify-content-center bg-success">
-            <div class="container py-4">
+    <section class="section footer m-0 p-0" id="footer">
+        <div class="container-nav bg-success">
+            <div class="container py-4 margin-respon ">
                 <div class="row mt-2 gap-1">
-                    <div class="col-md-4 mt-2">
+                    <div class="col-md mt-2 hidden-costume">
                         <img src="img/logo-nurhikmah.png" alt="img-content" class="img-footer">
                     </div>
-                    <div class="col-md-4 text-white">
-                        <p class="fs-4">Kontak Kami</p>
-                        <table class="table borderless">
+                    <div class="col-md text-white">
+                        <p class="fs-4 text-footer">Kontak Kami</p>
+                        <table class="table table-borderless">
                             <tr>
                                 <td>phone</td>
                                 <td>:</td>
@@ -226,10 +224,10 @@
                             <a href="#" class="icf-links"><i class="bi bi-facebook fs-5"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-3 text-white">
+                    <div class="col-md-3  text-white">
                         <div class="card-black text-uppercase">
-                            <p class="fs-4">Lokasi Kami</p>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8323.82448792056!2d106.92390107080396!3d-6.308351833826043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69929647524c2d%3A0x166eeed3af2d0a2c!2sSMPIT%20NUR%20HIKMAH!5e0!3m2!1sid!2sid!4v1679891610596!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <p class="fs-4 text-footer">Lokasi Kami</p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8323.82448792056!2d106.92390107080396!3d-6.308351833826043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69929647524c2d%3A0x166eeed3af2d0a2c!2sSMPIT%20NUR%20HIKMAH!5e0!3m2!1sid!2sid!4v1679891610596!5m2!1sid!2sid" style="border:0; max-width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
