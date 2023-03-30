@@ -212,13 +212,6 @@
                                 <td>:</td>
                                 <td>(021) 84599575</td>
                             </tr>
-                            <tr>
-                                <th scope="row">{{$data->id}}</th>
-                                <td>{{$data->nama}}</td>
-                                <td>{{$data->namaOrtu}}</td>
-                                <td>{{$data->nomorOrtu}}</td>
-                                <td><img src="{{asset('/storage/app/public/images/'.$data->kartuKeluarga)}}" width="100px" ></td>
-                            </tr>
                         </table>
                         <div class="sosmed d-flex justify-content-start">
                             <a href="#" class="icf-links"><i class="bi bi-instagram fs-5"></i></a>
