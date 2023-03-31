@@ -51,6 +51,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">Kontak</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -211,13 +214,6 @@
                                 <td>phone</td>
                                 <td>:</td>
                                 <td>(021) 84599575</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">{{$data->id}}</th>
-                                <td>{{$data->nama}}</td>
-                                <td>{{$data->namaOrtu}}</td>
-                                <td>{{$data->nomorOrtu}}</td>
-                                <td><img src="{{asset('/storage/app/public/images/'.$data->kartuKeluarga)}}" width="100px" ></td>
                             </tr>
                         </table>
                         <div class="sosmed d-flex justify-content-start">

@@ -35,12 +35,14 @@ body {
 .nav-link {
     font-size: 1rem;
     color: white;
+    transition: .6s;
 }
 
 .nav-link:hover{
     color: white;
     border-bottom: white 1px solid;
     cursor: pointer;
+    transition: .6s;
 
 }
 
@@ -71,6 +73,7 @@ body {
     color: black;
     background: white;
     padding: .8rem 1.2rem;
+    transition: .3s;
     border-radius: 1.25rem;
 }
 
@@ -78,6 +81,7 @@ body {
     border: white 1px solid;
     color: white;
     background: none;
+    transition: .3s;
 }
 
 .img-header {
@@ -286,6 +290,7 @@ td {
     .nav-link:hover{
         border: none;
         background: #fff;
+        transition: 2s;
         color: var(--bg-navhome);
     }
 

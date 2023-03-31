@@ -33,9 +33,9 @@ class SiswaResource extends Resource
                 Forms\Components\TextInput::make('namaOrtu')
                     ->required()
                     ->maxLength(255),
-                Tables\Columns\ImageColumn::make('kartuKeluarga')->disk('images'),
-                Tables\Columns\ImageColumn::make('akte')->disk('images'),
-                Tables\Columns\ImageColumn::make('buktiPembayaran')->disk('images')
+                Forms\Components\FileUpload::make('kartuKeluarga')->disk('images'),
+                Forms\Components\FileUpload::make('akte')->disk('images'),
+                Forms\Components\FileUpload::make('buktiPembayaran')->disk('images')
             ]);
     }
 
@@ -45,12 +45,9 @@ class SiswaResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('nama'),
+                Tables\Columns\TextColumn::make('nama')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('nomorOrtu'),
                 Tables\Columns\TextColumn::make('namaOrtu'),
-                Tables\Columns\ImageColumn::make('kartuKeluarga')->disk('images'),
-                Tables\Columns\ImageColumn::make('akte')->disk('images'),
-                Tables\Columns\ImageColumn::make('buktiPembayaran')->disk('images'),
             ])
             ->filters([
                 //
