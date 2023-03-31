@@ -23,5 +23,8 @@ Route::get('/registerdata' , function () {
     return view ('register');
 });
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
 Route::post('/registerdata', 'App\Http\Controllers\SiswaController@store');
 Route::resource('siswa', 'App\Http\Controllers\SiswaController');
