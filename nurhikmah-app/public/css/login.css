@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    overflow-x: hidden;
+}
+
+.bg-blur-green{
+    background-color: #0fa95737;
+}
