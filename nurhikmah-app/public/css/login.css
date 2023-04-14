@@ -8,6 +8,6 @@
     overflow-x: hidden;
 }
 
-.bg-blur-green{
-    background-color: #0fa95737;
+::placeholder{
+    font-size: 1rem;
 }

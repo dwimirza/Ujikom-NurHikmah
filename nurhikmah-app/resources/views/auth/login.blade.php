@@ -79,7 +79,7 @@
         <div class="col-md-8 img-fluid" style="
         background: linear-gradient(#0fa95737, #0fa95737), url('img/openning.png') center;
         background-size: cover;">
-        <!-- <div class="bg-blur-green h-100"></div> -->
+
         </div>
     </section>
 
