@@ -27,4 +27,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 Route::post('/registerdata', 'App\Http\Controllers\SiswaController@store');
+Route::get('/exam', 'App\Http\Controllers\ExamController@index');
+Route::get('/question', 'App\Http\Controllers\QuestionController@index');
 Route::resource('siswa', 'App\Http\Controllers\SiswaController');
+Route::resource('exam', 'App\Http\Controllers\ExamController');
+Route::resource('question', 'App\Http\Controllers\QuestionController');
