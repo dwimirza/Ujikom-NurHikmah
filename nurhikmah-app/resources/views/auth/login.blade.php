@@ -21,7 +21,7 @@
 
 <body class="vh-100">
 
-    <section class="d-flex row h-100">
+    <section class="d-flex row h-100 responsive-layout">
         <div class="col-md-4 px-5 py-4 d-flex flex-column">
             <div>
                 <img src="img/logo-horizontal.png" alt="logo-nurhikmah" class="mb-4" style="max-height: 122px;">
@@ -76,7 +76,7 @@
             <p class="opacity-75 justify-content-center d-flex align-items-center mt-auto">Design by ©idn student</p>
         </div>
 
-        <div class="col-md-8 img-fluid" style="
+        <div class="col-md-8 img-fluid responsive-image-layout" style="
         background: linear-gradient(#0fa95737, #0fa95737), url('img/openning.png') center;
         background-size: cover;">
 

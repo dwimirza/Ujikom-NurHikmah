@@ -11,3 +11,13 @@
 ::placeholder{
     font-size: 1rem;
 }
+
+@media (max-width: 800px){
+    /* .responsive-image-layout{
+        display: none;
+    }
+
+    .responsive-layout{
+        
+    } */
+}
