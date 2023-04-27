@@ -1,3 +1,73 @@
 .ms-n5 {
     margin-left: -40px;
 }
+
+body {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    padding-top: 1.3rem;
+}
+
+.jarak-section {
+    padding-left: 1.3rem;
+    padding-right: 1.3rem;
+    padding-top: 1.3rem;
+}
+
+.fitur-atur {
+    justify-content: end;
+    align-items: start;
+}
+
+.judul-besar{
+    font-size: 20px;
+}
+
+.no-besar{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media screen and (max-width:500px) {
+    body {
+        padding: 0;
+    }
+
+    .jarak-section{
+        padding: 0;
+        margin: 0;
+    }
+
+    .judul-atur{
+        justify-content: center;
+    }
+
+    .fitur-atur {
+        justify-content: center;
+    }
+
+    .jarak-responsive{
+        margin-top: 2rem;
+    }
+}
+
+@media screen and (max-width:680px) {
+    .judul-besar{
+        font-size: 16px;
+    }
+
+    .no-besar{
+        padding-left: .8rem;
+        padding-right: .8rem;
+    }
+}
+
+
+@media screen and (max-width:767px) {
+    .judul-atur{
+        justify-content: center;
+    }   
+    .fitur-atur{
+        justify-content: center;
+    }
+}
