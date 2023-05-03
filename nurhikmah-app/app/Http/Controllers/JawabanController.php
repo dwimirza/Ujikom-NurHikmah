@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jawaban;
 use Illuminate\Http\Request;
-use App\Models\Exam;
-use App\Models\Question;
 
-class ExamController extends Controller
+class JawabanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +13,8 @@ class ExamController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $exam = Exam::all();
-        return view('exam.index', compact('exam'));
+    {
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class ExamController extends Controller
      */
     public function create()
     {
-        return view('exam.create');
+        //
     }
 
     /**
@@ -37,55 +35,44 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-        $exam = new Exam;
-
-        $exam = Exam::create(
-            [
-                'materi' => $request->input('materi'),
-                'uniqueid' => $request->input('uniqueid'),
-                'waktu' => $request->input('waktu'),
-            ]
-            );
-
-            return redirect('exam');
-            // dd($exam);
-            
+        $answer = Jawaban::create([
+            'student_id' => $request->input('student_id'),
+            'question' => $request->input('question'),
+            'answer' => $request->input('answer'),
+            'correct_answer' => $request->input('correct_answer'),
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Jawaban  $jawaban
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jawaban $jawaban)
     {
-        $exam = Exam::find($id);
-        $question = Question::where('id_exam', $id)->get()->all();
-        
-        return view('exam.exam', compact('question', 'exam'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Jawaban  $jawaban
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jawaban $jawaban)
     {
-        $exam = Exam::find($id);
-        return view('question.create', compact('exam'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Jawaban  $jawaban
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jawaban $jawaban)
     {
         //
     }
@@ -93,10 +80,10 @@ class ExamController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Jawaban  $jawaban
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Jawaban $jawaban)
     {
         //
     }

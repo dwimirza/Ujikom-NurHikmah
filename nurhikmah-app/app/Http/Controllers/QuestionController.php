@@ -41,7 +41,6 @@ class QuestionController extends Controller
     {
 
        $data = $request->input();
-
        foreach ($data['soal'] as $key => $value) {
               $question = Question::create([
                 'id_exam' => $request->input('id_exam'),

@@ -22,6 +22,7 @@
             <td>{{$ujian->uniqueid}}</td>
             <td>
                 <a href="{{route('exam.edit', $ujian->id)}}">Create Question</a>
+                <a href="{{route('exam.show', $ujian->id)}}">Start Exam</a>
             </td>
         </tr>
         @endforeach
