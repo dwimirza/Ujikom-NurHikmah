@@ -28,6 +28,22 @@ body {
     padding-right: 1rem;
 }
 
+/* .dataTables_length{
+    display: none;
+}
+
+.dataTables_filter{
+    display: ;
+}
+
+.dataTables_info{
+    display: none;
+}
+
+.dataTables_paginate, .paging_simple_numbers{
+    display: none;
+} */
+
 @media screen and (max-width:500px) {
     body {
         padding: 0;
