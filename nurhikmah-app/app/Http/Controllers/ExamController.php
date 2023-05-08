@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Exam;
+use App\Models\Question;
 
 class ExamController extends Controller
 {
@@ -59,7 +60,10 @@ class ExamController extends Controller
      */
     public function show($id)
     {
-        //
+        $exam = Exam::find($id);
+        $question = Question::where('id_exam', $id)->get()->all();
+        
+        return view('exam.exam', compact('question', 'exam'));
     }
 
     /**

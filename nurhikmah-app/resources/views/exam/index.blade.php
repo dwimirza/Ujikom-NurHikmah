@@ -51,7 +51,7 @@
                 <th>Course Name</th>
                 <th>Set time</th>
                 <th>Unique ID</th>
-                <th>Action</th>
+                <th class="d-flex justify-content-center">Action</th>
             </tr>
             @foreach ($exam as $ujian)
             <tr class="container bg-white border rounded">
@@ -62,14 +62,15 @@
                     <p class="my-2">{{$ujian->materi}}</p>
                 </td>
                 <td class="fs-6 opacity-75">
-                    <p class="my-2">{{$ujian->waktu}}</p>
+                    <p class="my-2">{{$ujian->waktu}} Minite</p>
                 </td>
                 <td class="fs-6 opacity-75">
                     <p class="my-2">{{$ujian->uniqueid}}</p>
                 </td>
-                <td class="">
+                <td class="d-flex justify-content-center gap-2">
                     <a href="{{route('exam.edit', $ujian->id)}}"
                         class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
+                        <a href="{{route('exam.show', $ujian->id)}}" class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
                 </td>
             </tr>
             @endforeach

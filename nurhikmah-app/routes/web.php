@@ -32,3 +32,4 @@ Route::get('/question', 'App\Http\Controllers\QuestionController@index');
 Route::resource('siswa', 'App\Http\Controllers\SiswaController');
 Route::resource('exam', 'App\Http\Controllers\ExamController');
 Route::resource('question', 'App\Http\Controllers\QuestionController');
+Route::resource('jawaban', 'App\Http\Controllers\JawabanController');
