@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSoalTable extends Migration
+class CreateExamTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateSoalTable extends Migration
      */
     public function up()
     {
-        Schema::create('soal', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger("fk_id_soal")->unsigned();
-            $table->foreign("fk_id_soal")->references("id")->on("kategori")->onUpdate("cascade")->onDelete("cascade");
+        Schema::create('exam', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
+            $table->string('materi');
+            $table->string('uniqueid');
+            $table->string('waktu');
         });
     }
 
@@ -28,6 +29,6 @@ class CreateSoalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('soal');
+        Schema::dropIfExists('exam');
     }
 }

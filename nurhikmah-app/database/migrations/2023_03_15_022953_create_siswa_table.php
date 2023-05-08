@@ -22,8 +22,9 @@ class CreateSiswaTable extends Migration
             $table->string('kartuKeluarga')->nullable();
             $table->string('akte')->nullable();
             $table->string('buktiPembayaran')->nullable();
-            $table->bigInteger("fk_id_siswa")->unsigned();
-            $table->foreign("fk_id_siswa")->references("id")->on("users")->onUpdate("cascade")->onDelete("cascade");
+            $table->boolean('lulus')->default(false);
+            // $table->bigInteger("fk_id_siswa")->unsigned();
+            // $table->foreign("fk_id_siswa")->references("id")->on("users")->onUpdate("cascade")->onDelete("cascade");
         });
 
     }

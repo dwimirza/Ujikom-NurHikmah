@@ -4,13 +4,14 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SiswaResource\Pages;
 use App\Filament\Resources\SiswaResource\RelationManagers;
+use Filament\Tables\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder;
 use App\Models\Siswa;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
@@ -33,6 +34,7 @@ class SiswaResource extends Resource
                 Forms\Components\TextInput::make('namaOrtu')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\Toggle::make('lulus'),
                 Forms\Components\FileUpload::make('kartuKeluarga')->disk('images'),
                 Forms\Components\FileUpload::make('akte')->disk('images'),
                 Forms\Components\FileUpload::make('buktiPembayaran')->disk('images')
@@ -48,9 +50,11 @@ class SiswaResource extends Resource
                 Tables\Columns\TextColumn::make('nama')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('nomorOrtu'),
                 Tables\Columns\TextColumn::make('namaOrtu'),
+                Tables\Columns\BooleanColumn::make('lulus'),
             ])
             ->filters([
-                //
+                Filter::make('Lulus')
+    ->query(fn (Builder $query): Builder => $query->where('lulus', true))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
