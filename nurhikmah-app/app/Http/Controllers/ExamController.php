@@ -15,8 +15,17 @@ class ExamController extends Controller
      */
     public function index(Request $request)
     {   
-    $exam = Exam::all();
-    return view('exam.index', compact('exam'));
+
+        $value = $request->search;
+
+        if($request->has('search')) {
+            $exam = Exam::where('materi', 'LIKE', '%' .$request->search. '%')->get()->all();
+
+        } else {
+        $exam = Exam::all();
+
+        }
+    return view('exam.index', compact('exam', 'value'));
     }
 
     /**

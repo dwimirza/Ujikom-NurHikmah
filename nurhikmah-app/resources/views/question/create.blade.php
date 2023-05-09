@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('exam.navexam')
+
+@section('title', 'Buat Soal Ujian')
 
 @section('content')
 <form action="{{route('question.store')}}" method="post">

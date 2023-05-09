@@ -16,6 +16,14 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/listsial.css') }}">
 
+    <!-- DataTables -->
+    <!-- <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script> -->
+
+
+
 </head>
 
 <body style="background-color: #FAFAF9;">
@@ -28,16 +36,16 @@
             <div class="d-flex justify-content-end col-md-6">
                 <a class="btn btn-success me-4" href="{{route('exam.create')}}"><i
                         class="bi bi-file-earmark-plus"></i></a>
-                <div class="input-group">
+                <form class="input-group">
                     <input class="form-control border-end-0 border" type="search" placeholder="Cari Soal Ujian"
-                        id="example-search-input">
+                        id="example-search-input" name="search" value="{{ $value }}">
                     <span class="input-group-append">
                         <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
                             type="button">
                             <i class="bi bi-search"></i>
                         </button>
                     </span>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -94,8 +102,52 @@
                 </td>
             </tr>
             @endforeach
+        <table class="table table-striped table-responsive jarak-responsive" id="myTable">
+            <!-- <thead> -->
+                <tr>
+                    <!-- <th>
+                        <p class="ms-3 m-0">No.</p>
+                    </th> -->
+                    <th>Course Name</th>
+                    <th>Set time</th>
+                    <th>Unique ID</th>
+                    <th class="d-flex justify-content-center">Action</th>
+                </tr>
+            <!-- </thead> -->
+            <!-- <tbody> -->
+                @foreach ($exam as $ujian)
+                <tr class="container bg-white border rounded">
+                    <!-- <td class="">
+                        <p class="btn bg-secondary no-besar text-white ms-2 my-2 opacity-75">{{$ujian->id}}</p>
+                    </td> -->
+                    <td class="judul-besar fw-semibold text-capitalize">
+                        <p class="my-2">{{$ujian->materi}}</p>
+                    </td>
+                    <td class="fs-6 opacity-75">
+                        <p class="my-2">{{$ujian->waktu}} Minite</p>
+                    </td>
+                    <td class="fs-6 opacity-75">
+                        <p class="my-2">{{$ujian->uniqueid}}</p>
+                    </td>
+                    <td class="d-flex justify-content-center gap-2">
+                        <a href="{{route('exam.edit', $ujian->id)}}"
+                            class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
+                            <a href="{{route('exam.show', $ujian->id)}}" class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
+                    </td>
+                </tr>
+                @endforeach
+            <!-- </tbody> -->
         </table>
     </div>
 </body>
+
+
+
+<script>
+    // $(document).ready(function () {
+    //         $('#myTable').DataTable();
+    //     })
+
+</script>
 
 </html>
