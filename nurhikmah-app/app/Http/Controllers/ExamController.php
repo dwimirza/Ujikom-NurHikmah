@@ -13,10 +13,10 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
-        $exam = Exam::all();
-        return view('exam.index', compact('exam'));
+    $exam = Exam::all();
+    return view('exam.index', compact('exam'));
     }
 
     /**
@@ -44,6 +44,7 @@ class ExamController extends Controller
                 'materi' => $request->input('materi'),
                 'uniqueid' => $request->input('uniqueid'),
                 'waktu' => $request->input('waktu'),
+                'jumlah_soal' => 0,
             ]
             );
 
@@ -98,6 +99,7 @@ class ExamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Exam::destroy($id);
+        return redirect('exam');
     }
 }

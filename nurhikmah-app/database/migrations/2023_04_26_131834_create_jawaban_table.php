@@ -20,7 +20,8 @@ class CreateJawabanTable extends Migration
             $table->string('question');
             $table->string('answer');
             $table->string('correct_answer');
-
+            $table->string('materi')->nullable();
+            $table->integer('score')->default(0);
             $table->foreign('student_id')->references('id')->on('users');
 
         });
