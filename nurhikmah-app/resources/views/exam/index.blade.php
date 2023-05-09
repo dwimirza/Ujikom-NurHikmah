@@ -49,59 +49,6 @@
             </div>
         </div>
     </div>
-
-    <div class="daftar-soal jarak-section">
-        <table class="table table-striped table-responsive jarak-responsive">
-            <tr>
-                <th>
-                    <p class="ms-3 m-0">No.</p>
-                </th>
-                <th>Course Name</th>
-                <th>Set time</th>
-                <th>Jumlah Pertanyaan</th>
-                <th class="d-flex justify-content-center">Action</th>
-            </tr>
-
-            @foreach ($exam as $ujian)
-            <tr class="container bg-white border rounded">
-                <td class="">
-                    <p class="btn bg-secondary no-besar text-white ms-2 my-2 opacity-75">{{$ujian->id}}</p>
-                </td>
-                <td class="judul-besar fw-semibold text-capitalize">
-                    <p class="my-2">{{$ujian->materi}}</p>
-                </td>
-                <td class="fs-6 opacity-75">
-                    <p class="my-2">{{$ujian->waktu}} Minute</p>
-                </td>
-                <td class="fs-6 opacity-75">
-                    <p class="my-2">{{$ujian->jumlah_soal}}</p>
-                </td>
-                <td class="d-flex justify-content-center gap-2">
-                    <a href="{{route('exam.edit', $ujian->id)}}"
-                        class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
-                
-                    @if($ujian->jumlah_soal == 0)
-                    <button onclick="alert('Tidak ada soal di dalam exam ini')" class="btn btn-danger my-2 opacity-75">Start
-                        Exam</button>
-                    @else
-                    <a href="{{ route('exam.show', $ujian->id) }}"
-                        class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
-                    @endif
-
-                    <!-- <button class="btn btn-danger text-white my-2 opacity-75"
-                        onclick="alert('There are no questions in this exam!')">Start Exam</button> -->
-                
-                    <form action="{{ route('exam.destroy', $ujian->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger my-2"
-                            onclick="return confirm('Are you sure you want to delete this exam?')">
-                            Delete
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            @endforeach
         <table class="table table-striped table-responsive jarak-responsive" id="myTable">
             <!-- <thead> -->
                 <tr>
@@ -110,7 +57,7 @@
                     </th> -->
                     <th>Course Name</th>
                     <th>Set time</th>
-                    <th>Unique ID</th>
+                    <th>Jumlah Soal</th>
                     <th class="d-flex justify-content-center">Action</th>
                 </tr>
             <!-- </thead> -->
@@ -124,15 +71,29 @@
                         <p class="my-2">{{$ujian->materi}}</p>
                     </td>
                     <td class="fs-6 opacity-75">
-                        <p class="my-2">{{$ujian->waktu}} Minite</p>
+                        <p class="my-2">{{$ujian->waktu}} Minute</p>
                     </td>
                     <td class="fs-6 opacity-75">
-                        <p class="my-2">{{$ujian->uniqueid}}</p>
+                        <p class="my-2">{{$ujian->jumlah_soal}}</p>
                     </td>
                     <td class="d-flex justify-content-center gap-2">
                         <a href="{{route('exam.edit', $ujian->id)}}"
                             class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
-                            <a href="{{route('exam.show', $ujian->id)}}" class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
+                            @if($ujian->jumlah_soal == 0)
+                    <button onclick="alert('Tidak ada soal di dalam exam ini')" class="btn btn-danger my-2 opacity-75">Start
+                        Exam</button>
+                    @else
+                    <a href="{{ route('exam.show', $ujian->id) }}"
+                        class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
+                    @endif
+                            <form action="{{ route('exam.destroy', $ujian->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger my-2"
+                            onclick="return confirm('Are you sure you want to delete this exam?')">
+                            Delete
+                        </button>
+                    </form>
                     </td>
                 </tr>
                 @endforeach
