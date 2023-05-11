@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body" id="card-body">
                         <div class="form-group question">
-                            <input type="text" name="soal[]" placeholder="Question.." class="form-control mb-3 mt-3">
+                            <input type="text" name="soal[]" placeholder="Question.." class="form-control mb-3 mt-3" >
                             <input type="text" name="jawaban_a[]" class="form-control mb-3" placeholder="Opsi A">
                             <input type="text" name="jawaban_b[]" class="form-control mb-3" placeholder="Opsi B">
                             <input type="text" name="jawaban_c[]" class="form-control mb-3" placeholder="Opsi C">
@@ -22,7 +22,6 @@
                             <input type="text" value="{{$exam->id}}" name="id_exam" class="form-control mb-3" readonly>
                             <input type="hidden" name="jumlah_soal[]">
                             <input type="text" name="jawaban[]" class="form-control mb-3" placeholder="Jawaban">
-                            <button class="btn btn-warning remove-row" type="button">Delete</button>
                         </div>
                     </div>
                     <div class="card-footer">
@@ -49,8 +48,7 @@
         i++;
         $('#card-body').append(
             `
-			<div class="card-body" id="card-body">
-					<div class="form-group question">
+					<div class="form-group question" id="question">
 						<input type="text" name="soal[]" placeholder="Question.." class="form-control mb-3 mt-3">
 						<input type="text" name="jawaban_a[]" class="form-control mb-3" placeholder="Opsi A">
 						<input type="text" name="jawaban_b[]" class="form-control mb-3" placeholder="Opsi B">
@@ -60,13 +58,13 @@
 						<input type="text" name="jawaban[]" class="form-control mb-3" placeholder="Jawaban">
 						<button class="btn btn-warning remove-row" type="button">Delete</button>
 					</div>
-				</div>
+				
 			`
         );
     });
 
     $(document).on('click', '.remove-row', function () {
-        $(this).parents('#question').remove();
+        $(this).parent('#question').remove();
     });
 
 </script>
