@@ -13,10 +13,19 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
+
+        $value = $request->search;
+
+        if($request->has('search')) {
+            $exam = Exam::where('materi', 'LIKE', '%' .$request->search. '%')->get()->all();
+
+        } else {
         $exam = Exam::all();
-        return view('exam.index', compact('exam'));
+
+        }
+    return view('exam.index', compact('exam', 'value'));
     }
 
     /**
@@ -44,6 +53,7 @@ class ExamController extends Controller
                 'materi' => $request->input('materi'),
                 'uniqueid' => $request->input('uniqueid'),
                 'waktu' => $request->input('waktu'),
+                'jumlah_soal' => 0,
             ]
             );
 
@@ -98,6 +108,7 @@ class ExamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Exam::destroy($id);
+        return redirect('exam');
     }
 }

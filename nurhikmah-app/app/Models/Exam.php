@@ -10,4 +10,9 @@ class Exam extends Model
     use HasFactory;
     protected $table = 'exam';
     protected $guarded = [];
+
+    public function soal()
+    {
+        return $this->hasMany(Question::class, 'id_exam');
+    }
 }

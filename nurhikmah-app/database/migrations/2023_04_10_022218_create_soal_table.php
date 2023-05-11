@@ -24,7 +24,7 @@ class CreateSoalTable extends Migration
             $table->string('jawaban');
             $table->timestamps();
 
-            $table->foreign('id_exam')->references('id')->on('exam');
+            $table->foreign('id_exam')->references('id')->on('exam')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
