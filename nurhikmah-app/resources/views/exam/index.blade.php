@@ -20,40 +20,45 @@
 
 <body style="background-color: #FAFAF9;">
 
-    <div class="row jarak-section">
-        <div class="col-md-6 d-flex judul-atur jarak-responsive">
-            <p class="fs-2 fw-semibold">Daftar Soal Ujian</p>
-        </div>
-        <div class="col-md-6 d-flex fitur-atur">
-            <div class="d-flex justify-content-end col-md-6">
+<div class="row jarak-section">
+    <div class="col-md-6 d-flex judul-atur jarak-responsive">
+        <p class="fs-2 fw-semibold">Daftar Soal Ujian</p>
+    </div>
+    <div class="col-md-6 d-flex fitur-atur">
+        <div class="d-flex justify-content-end col-md-6">
+            @if(auth()->user()->role == "admin")
                 <a class="btn btn-success me-4" href="{{route('exam.create')}}"><i
-                        class="bi bi-file-earmark-plus"></i></a>
-                <div class="input-group">
-                    <input class="form-control border-end-0 border" type="search" placeholder="Cari Soal Ujian"
-                        id="example-search-input">
-                    <span class="input-group-append">
+                        class="bi bi-file-earmark-plus"></i>
+                </a>
+            @else
+
+            @endif
+            <div class="input-group">
+                <input class="form-control border-end-0 border" type="search" placeholder="Cari Soal Ujian"
+                       id="example-search-input">
+                <span class="input-group-append">
                         <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
-                            type="button">
+                                type="button">
                             <i class="bi bi-search"></i>
                         </button>
                     </span>
-                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="daftar-soal jarak-section">
-        <table class="table table-striped table-responsive jarak-responsive">
-            <tr>
-                <th>
-                    <p class="ms-3 m-0">No.</p>
-                </th>
-                <th>Course Name</th>
-                <th>Set time</th>
-                <th>Unique ID</th>
-                <th class="d-flex justify-content-center">Action</th>
-            </tr>
-            @foreach ($exam as $ujian)
+<div class="daftar-soal jarak-section">
+    <table class="table table-striped table-responsive jarak-responsive">
+        <tr>
+            <th>
+                <p class="ms-3 m-0">No.</p>
+            </th>
+            <th>Course Name</th>
+            <th>Set time</th>
+            <th>Unique ID</th>
+            <th class="d-flex justify-content-center">Action</th>
+        </tr>
+        @foreach ($exam as $ujian)
             <tr class="container bg-white border rounded">
                 <td class="">
                     <p class="btn bg-secondary no-besar text-white ms-2 my-2 opacity-75">{{$ujian->id}}</p>
@@ -68,14 +73,19 @@
                     <p class="my-2">{{$ujian->uniqueid}}</p>
                 </td>
                 <td class="d-flex justify-content-center gap-2">
-                    <a href="{{route('exam.edit', $ujian->id)}}"
-                        class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
-                        <a href="{{route('exam.show', $ujian->id)}}" class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
+                    @if(auth()->user()->role == "admin")
+                        <a href="{{route('exam.edit', $ujian->id)}}"
+                           class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
+                        <a href="{{route('exam.show', $ujian->id)}}" class="btn btn-success text-white my-2 opacity-75">Start
+                            Exam</a>
+                    @else
+                        <a href="{{route('exam.show', $ujian->id)}}" class="btn btn-success text-white my-2 opacity-75">Start
+                            Exam</a>
+                    @endif
                 </td>
             </tr>
-            @endforeach
-        </table>
-    </div>
+        @endforeach
+    </table>
+</div>
 </body>
-
 </html>
