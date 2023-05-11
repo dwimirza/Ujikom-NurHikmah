@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Js Sendiri -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!--Icon from Bootstap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
@@ -80,7 +83,7 @@
                         <a href="{{route('exam.edit', $ujian->id)}}"
                             class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
                             @if($ujian->jumlah_soal == 0)
-                    <button onclick="alert('Tidak ada soal di dalam exam ini')" class="btn btn-danger my-2 opacity-75">Start
+                    <button onclick="swal('Tidak ada soal di dalam exam ini','Silahkan hubungi penguji','error')" class="btn btn-danger my-2 opacity-75">Start
                         Exam</button>
                     @else
                     <a href="{{ route('exam.show', $ujian->id) }}"
