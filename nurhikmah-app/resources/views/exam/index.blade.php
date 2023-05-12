@@ -49,6 +49,7 @@
             </div>
         </div>
     </div>
+    <div class="daftar-soal jarak-section">
         <table class="table table-striped table-responsive jarak-responsive" id="myTable">
             <!-- <thead> -->
                 <tr>
@@ -74,24 +75,28 @@
                         <p class="my-2">{{$ujian->waktu}} Minute</p>
                     </td>
                     <td class="fs-6 opacity-75">
-                        <p class="my-2">{{$ujian->jumlah_soal}}</p>
+                    @if($ujian)
+                    <p class="my-2">Belum ada soal</p>
+                    @else
+                    <p class="my-2">{{ $ujian->jumlah_soal }}</p>
+                    @endif
                     </td>
                     <td class="d-flex justify-content-center gap-2">
                         <a href="{{route('exam.edit', $ujian->id)}}"
                             class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
                             @if($ujian->jumlah_soal == 0)
-                    <button onclick="alert('Tidak ada soal di dalam exam ini')" class="btn btn-danger my-2 opacity-75">Start
-                        Exam</button>
+                    <button onclick="alert('Tidak ada soal di dalam exam ini')" class="btn btn-danger my-2 opacity-75">Mulai
+                        Ujian</button>
                     @else
                     <a href="{{ route('exam.show', $ujian->id) }}"
-                        class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
+                        class="btn btn-success text-white my-2 opacity-75">Mulai Ujian</a>
                     @endif
                             <form action="{{ route('exam.destroy', $ujian->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger my-2"
                             onclick="return confirm('Are you sure you want to delete this exam?')">
-                            Delete
+                            Hapus Materi
                         </button>
                     </form>
                     </td>
@@ -99,6 +104,7 @@
                 @endforeach
             <!-- </tbody> -->
         </table>
+        </div>
     </div>
 </body>
 
