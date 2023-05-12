@@ -68,7 +68,7 @@
                     <p class="visi">Mencetak generasi berakhlakul karimah, mandiri dan berprestasi akademik optimal</p>
                     <p style="margin-bottom: 2rem;" class="desc-header">Menjadikan Nur Hikmah sebagai sekolah
                         percontohan & lembaga dakwah berbasis pendidikan</p>
-                    <a href="{{route('siswa.store')}}" class="btn-daftar">Daftar Sekarang</a>
+                    <a href="{{route('siswa.store')}}" class="btn-daftar">Mulai Sekarang</a>
                 </div>
                 <div class="col-md-6 hidden-costume">
                     <img src="img/img-content-h.png" alt="img-content" class="img-header">
