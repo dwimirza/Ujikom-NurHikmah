@@ -88,7 +88,7 @@
     });
 
     $(document).on('click', '.remove-row', function () {
-        $(this).parents('#question').remove();
+        $(this).parent('#question').remove();
     });
 
 </script>
