@@ -34,12 +34,12 @@
             <div class="row">
 
                 <div class="form-outline mb-6 mb-4">
-                    <label class="form-label fs-6 fw-medium" for="idSiswa">{{ __('Id Siswa*') }}</label>
-                    <input type="number" id="id_siswa" name="id_siswa" class="form-control form-control-lg rounded
-                            @error('id_siswa') is-invalid @enderror border-secondary" placeholder="eg:0064772666"
-                           value="{{ old('id_siswa') }}" required/>
+                    <label class="form-label fs-6 fw-medium" for="name">{{ __('Nama') }}<span class="text-danger">*</span></label>
+                    <input type="text" id="name" name="name" class="form-control form-control-lg rounded
+                            @error('name') is-invalid @enderror border-secondary" placeholder="Masukan Nama"
+                           value="{{ old('name') }}" required/>
 
-                    @error('id_siswa')
+                    @error('name')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -48,7 +48,7 @@
 
                 <div class="form-outline mb-6 mb-4">
                     <label class="form-label fs-6 fw-medium"
-                           for="katasandiSiswa">{{ __('Kata Sandi Siswa*') }}</label>
+                           for="katasandiSiswa">{{ __('Kata Sandi Siswa') }}<span class="text-danger">*</span></label>
                     <input type="password" id="password" name="password"
                            class="form-control form-control-lg @error('password') is-invalid @enderror rounded border-secondary"
                            placeholder="Masukan Kata Sandi" autocomplete="current-password" required/>

@@ -15,17 +15,17 @@ class SiswaLoginController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'id_siswa' => 'required',
+            'name' => 'required',
             'password' => 'required|min:6',
         ]);
 
-        $credentials = $request->only('id_siswa', 'password');
+        $credentials = $request->only('name', 'password');
         if (Auth::attempt($credentials)) {
             return redirect('/exam');
         }
 
-        return redirect()->back()->withInput($request->only('id_siswa', 'remember'))->withErrors([
-            'id_siswa' => 'These credentials do not match our records.',
+        return redirect()->back()->withInput($request->only('name', 'remember'))->withErrors([
+            'name' => 'These credentials do not match our records.',
         ]);
     }
 
