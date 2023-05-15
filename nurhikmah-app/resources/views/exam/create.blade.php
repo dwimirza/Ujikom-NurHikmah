@@ -8,7 +8,7 @@
     The current value is {{ $i }}
 @endfor -->
 
-<section class="materi vh-100 d-flex justify-content-center align-items-center" style="justify-self: center;">
+<section class="materi d-flex justify-content-center align-items-center padding-app-exam" style="justify-self: center;">
         <div class="card col-11 col-md-9 col-xl-7" style="margin-bottom: 200px; padding-top: 50px; padding-bottom: 50px; padding-left: 58px; padding-right: 58px;">
             <form method="post" class="" action="{{route('exam.store')}}">
             {{ csrf_field() }}

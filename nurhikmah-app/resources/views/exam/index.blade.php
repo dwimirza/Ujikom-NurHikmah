@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Js Sendiri -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!--Icon from Bootstap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
@@ -52,67 +55,71 @@
         </div>
     </div>
 </div>
-<table class="table table-striped table-responsive jarak-responsive" id="myTable">
-    <!-- <thead> -->
-    <tr>
-        <!-- <th>
-            <p class="ms-3 m-0">No.</p>
-        </th> -->
-        <th>Course Name</th>
-        <th>Set time</th>
-        <th>Jumlah Soal</th>
-        <th class="d-flex justify-content-center">Action</th>
-    </tr>
-    <!-- </thead> -->
-    <!-- <tbody> -->
-    @foreach ($exam as $ujian)
-        <tr class="container bg-white border rounded">
-        <!-- <td class="">
+<div class="daftar-soal jarak-section">
+    <table class="table table-striped table-responsive jarak-responsive" id="myTable">
+        <!-- <thead> -->
+        <tr>
+            <!-- <th>
+                <p class="ms-3 m-0">No.</p>
+            </th> -->
+            <th>Course Name</th>
+            <th>Set time</th>
+            <th>Jumlah Soal</th>
+            <th class="d-flex justify-content-center">Action</th>
+        </tr>
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        @foreach ($exam as $ujian)
+            <tr class="container bg-white border rounded">
+            <!-- <td class="">
                         <p class="btn bg-secondary no-besar text-white ms-2 my-2 opacity-75">{{$ujian->id}}</p>
                     </td> -->
-            <td class="judul-besar fw-semibold text-capitalize">
-                <p class="my-2">{{$ujian->materi}}</p>
-            </td>
-            <td class="fs-6 opacity-75">
-                <p class="my-2">{{$ujian->waktu}} Minute</p>
-            </td>
-            <td class="fs-6 opacity-75">
-                <p class="my-2">{{$ujian->jumlah_soal}}</p>
-            </td>
-            <td class="d-flex justify-content-center gap-2">
-                @if(auth()->user()->role == "admin")
-                    <a href="{{route('exam.edit', $ujian->id)}}"
-                       class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
-                @else
-                @endif
-                @if($ujian->jumlah_soal == 0)
-                    <button onclick="alert('Tidak ada soal di dalam exam ini')" class="btn btn-danger my-2 opacity-75">
-                        Start
-                        Exam
-                    </button>
-                @else
-                    <a href="{{ route('exam.show', $ujian->id) }}"
-                       class="btn btn-success text-white my-2 opacity-75">Start Exam</a>
-                @endif
-                <form action="{{ route('exam.destroy', $ujian->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
+                <td class="judul-besar fw-semibold text-capitalize">
+                    <p class="my-2">{{$ujian->materi}}</p>
+                </td>
+                <td class="fs-6 opacity-75">
+                    <p class="my-2">{{$ujian->waktu}} Minute</p>
+                </td>
+                <td class="fs-6 opacity-75">
+                    @if($ujian)
+                        <p class="my-2">Belum ada soal</p>
+                    @else
+                        <p class="my-2">{{ $ujian->jumlah_soal }}</p>
+                    @endif
+                </td>
+                <td class="d-flex justify-content-center gap-2">
                     @if(auth()->user()->role == "admin")
-                        <button type="submit" class="btn btn-danger my-2"
-                                onclick="return confirm('Are you sure you want to delete this exam?')">
-                            Delete
-                        </button>
+                        <a href="{{route('exam.edit', $ujian->id)}}"
+                           class="btn btn-secondary text-white my-2 opacity-75">Buat Soal</a>
                     @else
                     @endif
-                </form>
-            </td>
-        </tr>
-@endforeach
-<!-- </tbody> -->
-</table>
+                    @if($ujian->jumlah_soal == 0)
+                        <button onclick="alert('Tidak ada soal di dalam exam ini')"
+                                class="btn btn-danger my-2 opacity-75">Mulai
+                            Ujian
+                        </button>
+                    @else
+                        <a href="{{ route('exam.show', $ujian->id) }}"
+                           class="btn btn-success text-white my-2 opacity-75">Mulai Ujian</a>
+                    @endif
+                    <form action="{{ route('exam.destroy', $ujian->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        @if(auth()->user()->role == "admin")
+                            <button type="submit" class="btn btn-danger my-2"
+                                    onclick="return confirm('Are you sure you want to delete this exam?')">
+                                Hapus Materi
+                            </button>
+                        @else
+                        @endif
+                    </form>
+                </td>
+            </tr>
+    @endforeach
+    <!-- </tbody> -->
+    </table>
 </div>
 </body>
-
 
 <script>
     // $(document).ready(function () {
