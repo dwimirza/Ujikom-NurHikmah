@@ -28,8 +28,6 @@ class ExamController extends Controller
     return view('exam.index', compact('exam', 'value'));
 
         }
-    return view('exam.index', compact('exam', 'value'));
-    }
 
     /**
      * Show the form for creating a new resource.
