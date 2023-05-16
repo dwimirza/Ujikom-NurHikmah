@@ -57,6 +57,27 @@
         <script type="text/javascript">
     var timeoutHandle;
 
+    function saveAnswer(questionId) {
+        var selectedAnswer = document.querySelector('input[name="answer_' + questionId + '"]:checked');
+        if (selectedAnswer) {
+            var answerKey = 'answer_' + questionId;
+            var answerValue = selectedAnswer.value;
+            var savedAnswers = localStorage.getItem('saved_answers');
+            var answersObj = savedAnswers ? JSON.parse(savedAnswers) : {};
+            answersObj[answerKey] = answerValue;
+            localStorage.setItem('saved_answers', JSON.stringify(answersObj));
+        }
+    }
+
+    // Call the saveAnswer() function when a radio button is clicked
+    var radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener('click', function () {
+            var questionId = this.name.split('_')[1];
+            saveAnswer(questionId);
+        });
+    });
+
     function countdown(minutes) {
         var seconds = 60;
         var mins = minutes
