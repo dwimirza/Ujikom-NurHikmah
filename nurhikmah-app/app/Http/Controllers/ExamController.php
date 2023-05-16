@@ -13,10 +13,18 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
+        $value = $request->search;
+
+        if($request->has('search')) {
+            $exam = Exam::where('materi', 'LIKE', '%' .$request->search. '%')->get()->all();
+
+        } else {
         $exam = Exam::all();
-        return view('exam.index', compact('exam'));
+
+        }
+    return view('exam.index', compact('exam', 'value'));
     }
 
     /**

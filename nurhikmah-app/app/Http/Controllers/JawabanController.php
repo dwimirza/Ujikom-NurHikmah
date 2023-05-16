@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jawaban;
 use Illuminate\Http\Request;
+use App\Models\Question;
 
 class JawabanController extends Controller
 {
@@ -35,12 +36,32 @@ class JawabanController extends Controller
      */
     public function store(Request $request)
     {
-        $answer = Jawaban::create([
-            'student_id' => $request->input('student_id'),
-            'question' => $request->input('question'),
-            'answer' => $request->input('answer'),
-            'correct_answer' => $request->input('correct_answer'),
-        ]);
+        // Jawaban::create([
+        //     'student_id' => $request->input('student_id'),
+        //     'question' => $request->input('question'),
+        //     'answer' => $request->input('answer'),
+        //     'correct_answer' => $request->input('correct_answer'),
+        // ]);
+    
+        // return redirect('exam');
+
+
+        
+            $questions = Question::all();
+            
+            foreach ($questions as $question) {
+                $jawaban = new Jawaban();
+                $jawaban->student_id = $request->input('student_id');
+                $jawaban->question = $question->soal;
+                $jawaban->answer = $request->input('answer_' . $question->id);
+                $jawaban->correct_answer = $question->jawaban;
+                $jawaban->save();
+            }
+        
+            return redirect('exam');
+        
+        
+
     }
 
     /**
