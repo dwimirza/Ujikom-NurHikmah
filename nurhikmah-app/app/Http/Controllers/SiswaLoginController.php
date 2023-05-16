@@ -3,32 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Exam;
-use App\Models\Question;
+use Illuminate\Support\Facades\Auth;
 
-class ExamController extends Controller
+class SiswaLoginController extends Controller
 {
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
+
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'password' => 'required|min:6',
+        ]);
+
+        $credentials = $request->only('name', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect('/exam');
+        }
+
+        return redirect()->back()->withInput($request->only('name', 'remember'))->withErrors([
+            'name' => 'These credentials do not match our records.',
+        ]);
+    }
+
+//    public function logout()
+//    {
+//        auth()->guard('siswa')->logout();
+//        return redirect()->route('auth.login');
+//    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {   
-
-        $value = $request->search;
-
-        if($request->has('search')) {
-            $exam = Exam::where('materi', 'LIKE', '%' .$request->search. '%')->get()->all();
-
-        } else {
-        $exam = Exam::all();
-
-        }
-    return view('exam.index', compact('exam', 'value'));
-
-        }
-    return view('exam.index', compact('exam', 'value'));
+    public function index()
+    {
+        //
     }
 
     /**
@@ -38,7 +52,7 @@ class ExamController extends Controller
      */
     public function create()
     {
-        return view('exam.create');
+        //
     }
 
     /**
@@ -49,20 +63,7 @@ class ExamController extends Controller
      */
     public function store(Request $request)
     {
-        $exam = new Exam;
-
-        $exam = Exam::create(
-            [
-                'materi' => $request->input('materi'),
-                'uniqueid' => $request->input('uniqueid'),
-                'waktu' => $request->input('waktu'),
-                'jumlah_soal' => 0,
-            ]
-            );
-
-            return redirect('exam');
-            // dd($exam);
-            
+        //
     }
 
     /**
@@ -73,10 +74,7 @@ class ExamController extends Controller
      */
     public function show($id)
     {
-        $exam = Exam::find($id);
-        $question = Question::where('id_exam', $id)->get()->all();
-        
-        return view('exam.exam', compact('question', 'exam'));
+        //
     }
 
     /**
@@ -87,8 +85,7 @@ class ExamController extends Controller
      */
     public function edit($id)
     {
-        $exam = Exam::find($id);
-        return view('question.create', compact('exam'));
+        //
     }
 
     /**
@@ -111,7 +108,6 @@ class ExamController extends Controller
      */
     public function destroy($id)
     {
-        Exam::destroy($id);
-        return redirect('exam');
+        //
     }
 }

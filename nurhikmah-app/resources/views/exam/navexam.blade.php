@@ -37,10 +37,35 @@
         :root {
             --bg-layout: #FAFAF9;
             --bg-green-nh: #0FA958;
+            --bg-card:#EDEDED;
         }
 
         * {
             font-family: 'Poppins', sans-serif;
+        }
+
+        .distance-gap{
+            gap: 20px;
+        }
+
+        .padding-app-exam{
+            padding-top:3rem;
+        }
+
+        @media screen and (max-width:580px) {
+
+        .hidden-part{
+            display: none;
+        }
+
+        .distance-gap{
+            gap: 10px;
+        }
+
+        .padding-app-exam{
+            padding-top: 1rem;
+        }
+
         }
 
     </style>
@@ -62,5 +87,7 @@
             @yield('content')
         </main>
 </body>
+
+</html>
 
 </html>

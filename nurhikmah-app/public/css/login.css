@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    overflow-x: hidden;
+}
+
+::placeholder{
+    font-size: 1rem;
+}
+
+@media (max-width: 800px){
+    /* .responsive-image-layout{
+        display: none;
+    }
+
+    .responsive-layout{
+        
+    } */
+}

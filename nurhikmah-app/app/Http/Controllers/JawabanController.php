@@ -36,27 +36,24 @@ class JawabanController extends Controller
      */
     public function store(Request $request)
     {
-        // Jawaban::create([
-        //     'student_id' => $request->input('student_id'),
-        //     'question' => $request->input('question'),
-        //     'answer' => $request->input('answer'),
-        //     'correct_answer' => $request->input('correct_answer'),
-        // ]);
-    
-        // return redirect('exam');
 
-
-        
             $questions = Question::all();
-            
+            $score = 0;
             foreach ($questions as $question) {
                 $jawaban = new Jawaban();
                 $jawaban->student_id = $request->input('student_id');
                 $jawaban->question = $question->soal;
                 $jawaban->answer = $request->input('answer_' . $question->id);
                 $jawaban->correct_answer = $question->jawaban;
+                if ($jawaban->answer == $jawaban->correct_answer) {
+                    $score++;
+                }
+                $jawaban->score = $score;
+                $jawaban->materi = $request->input('materi');
                 $jawaban->save();
             }
+
+
         
             return redirect('exam');
         
@@ -106,6 +103,6 @@ class JawabanController extends Controller
      */
     public function destroy(Jawaban $jawaban)
     {
-        //
+       //
     }
 }

@@ -10,4 +10,9 @@ class Question extends Model
     use HasFactory;
     protected $table = 'soal';
     protected $guarded = [];
+
+    public function exam()
+    {
+        return $this->belongsTo('App\Models\Exam', 'id_exam');
+    }
 }

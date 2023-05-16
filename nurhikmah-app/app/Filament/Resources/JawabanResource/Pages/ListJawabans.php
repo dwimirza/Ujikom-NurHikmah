@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\SiswaResource\Pages;
+namespace App\Filament\Resources\JawabanResource\Pages;
 
-use App\Filament\Resources\SiswaResource;
+use App\Filament\Resources\JawabanResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListSiswas extends ListRecords
+class ListJawabans extends ListRecords
 {
-    protected static string $resource = SiswaResource::class;
+    protected static string $resource = JawabanResource::class;
 
     protected function getActions(): array
     {
