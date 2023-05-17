@@ -90,7 +90,7 @@
                     @else
                     @endif
                     @if($ujian->jumlah_soal == 0)
-                        <button onclick="alert('Tidak ada soal di dalam exam ini')"
+                        <button onclick="swal('Tidak ada soal di dalam exam ini', 'Silahkan hubungi penguji', 'error')"
                                 class="btn btn-danger my-2 opacity-75">Mulai
                             Ujian
                         </button>
