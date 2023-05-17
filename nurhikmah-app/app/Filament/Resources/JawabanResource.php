@@ -17,7 +17,7 @@ class JawabanResource extends Resource
 {
     protected static ?string $model = Jawaban::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-check';
 
     public static function form(Form $form): Form
     {
