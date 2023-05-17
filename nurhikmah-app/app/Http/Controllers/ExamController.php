@@ -52,7 +52,6 @@ class ExamController extends Controller
         $exam = Exam::create(
             [
                 'materi' => $request->input('materi'),
-                'uniqueid' => $request->input('uniqueid'),
                 'waktu' => $request->input('waktu'),
                 'jumlah_soal' => 0,
             ]
