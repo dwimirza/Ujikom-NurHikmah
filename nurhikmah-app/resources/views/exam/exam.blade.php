@@ -38,16 +38,6 @@
                         <input type="hidden" readonly name="student_id" value="{{ Auth::user()->id }}">
                         @endauth
                     </fieldset>
-
-
-
-            <!-- <input type="hidden" name="question" value="{{$questions->question}}">
-            <input type="hidden" name="true_answer" value="{{$questions->answer}}">
-            <input name="answer" value="{{$questions->choice}}" type="radio"> {{$questions->jawaban_a}} <br>
-            <input name="answer" value="{{$questions->choice}}" type="radio">{{$questions->jawaban_b}}<br>
-            <input name="answer" value="{{$questions->choice}}" type="radio">{{$questions->jawaban_c}}<br>
-            <input name="answer" value="{{$questions->jawaban_a}}" type="radio">{{$questions->jawaban_d}}<br> -->
-
                 </div>
             </div>
             @endforeach
@@ -57,31 +47,6 @@
         <script type="text/javascript">
     var timeoutHandle;
      // Function to store the selected answers in local storage
-    function storeSelectedAnswers() {
-        const selectedAnswers = {};
-        const radios = document.querySelectorAll('input[type="radio"]');
-        radios.forEach(radio => {
-            if (radio.checked) {
-                const questionId = radio.name.split('_')[1];
-                const answer = radio.value;
-                selectedAnswers[questionId] = answer;
-            }
-        });
-        localStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers));
-    }
-
-    // Function to retrieve saved answers from local storage and pre-select radio buttons
-    function retrieveSelectedAnswers() {
-        const selectedAnswers = JSON.parse(localStorage.getItem('selectedAnswers'));
-        if (selectedAnswers) {
-            Object.entries(selectedAnswers).forEach(([questionId, answer]) => {
-                const radio = document.querySelector(`input[name="answer_${questionId}"][value="${answer}"]`);
-                if (radio) {
-                    radio.checked = true;
-                }
-            });
-        }
-    }
 
     // Call the storeSelectedAnswers() function when a radio button is clicked
     const radios = document.querySelectorAll('input[type="radio"]');
