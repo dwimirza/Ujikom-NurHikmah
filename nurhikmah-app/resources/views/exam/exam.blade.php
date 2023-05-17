@@ -56,27 +56,48 @@
 
         <script type="text/javascript">
     var timeoutHandle;
+     // Function to store the selected answers in local storage
+    function storeSelectedAnswers() {
+        const selectedAnswers = {};
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(radio => {
+            if (radio.checked) {
+                const questionId = radio.name.split('_')[1];
+                const answer = radio.value;
+                selectedAnswers[questionId] = answer;
+            }
+        });
+        localStorage.setItem('selectedAnswers', JSON.stringify(selectedAnswers));
+    }
 
-    function saveAnswer(questionId) {
-        var selectedAnswer = document.querySelector('input[name="answer_' + questionId + '"]:checked');
-        if (selectedAnswer) {
-            var answerKey = 'answer_' + questionId;
-            var answerValue = selectedAnswer.value;
-            var savedAnswers = localStorage.getItem('saved_answers');
-            var answersObj = savedAnswers ? JSON.parse(savedAnswers) : {};
-            answersObj[answerKey] = answerValue;
-            localStorage.setItem('saved_answers', JSON.stringify(answersObj));
+    // Function to retrieve saved answers from local storage and pre-select radio buttons
+    function retrieveSelectedAnswers() {
+        const selectedAnswers = JSON.parse(localStorage.getItem('selectedAnswers'));
+        if (selectedAnswers) {
+            Object.entries(selectedAnswers).forEach(([questionId, answer]) => {
+                const radio = document.querySelector(`input[name="answer_${questionId}"][value="${answer}"]`);
+                if (radio) {
+                    radio.checked = true;
+                }
+            });
         }
     }
 
-    // Call the saveAnswer() function when a radio button is clicked
-    var radioButtons = document.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach(function (radioButton) {
-        radioButton.addEventListener('click', function () {
-            var questionId = this.name.split('_')[1];
-            saveAnswer(questionId);
+    // Call the storeSelectedAnswers() function when a radio button is clicked
+    const radios = document.querySelectorAll('input[type="radio"]');
+    radios.forEach(radio => {
+        radio.addEventListener('click', () => {
+            storeSelectedAnswers();
         });
     });
+
+    // Call the retrieveSelectedAnswers() function on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        retrieveSelectedAnswers();
+        // Call storeSelectedAnswers() to ensure the current selection is saved on page load
+        storeSelectedAnswers();
+    });
+
 
     function countdown(minutes) {
         var seconds = 60;
@@ -104,6 +125,7 @@
     }
 
     countdown(<?php echo $exam->waktu; ?>);
+
 
     function showWarning() {
         alert("Only 5 minutes left!");
