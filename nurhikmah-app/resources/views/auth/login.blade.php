@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
@@ -22,7 +22,7 @@
 <body class="vh-100">
 
     <section class="d-flex row h-100 responsive-layout">
-        <div class="col-md-4 px-5 py-4 d-flex flex-column">
+        <div class="col-xl-4 col-lg-6 px-5 py-4 d-flex flex-column">
             <div>
                 <img src="img/logo-horizontal.png" alt="logo-nurhikmah" class="mb-4" style="max-height: 122px;">
             </div>
@@ -34,12 +34,12 @@
                 <div class="row">
 
                     <div class="form-outline mb-6 mb-4">
-                        <label class="form-label fs-6 fw-medium" for="idSiswa">{{ __('Id Siswa*') }}</label>
-                        <input type="number" id="idSiswa" name="idSiswa" class="form-control form-control-lg rounded 
-                            @error('idSiswa') is-invalid @enderror border-secondary" placeholder="eg:0064772666"
-                            value="{{ old('idSiswa') }}" required />
+                        <label class="form-label fs-6 fw-medium" for="name">{{ __('Nama') }}<span class="text-danger">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control form-control-lg rounded
+                            @error('name') is-invalid @enderror border-secondary" placeholder="Masukan Nama"
+                           value="{{ old('name') }}" required/>
 
-                        @error('idSiswa')
+                        @error('siswa')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -48,7 +48,7 @@
 
                     <div class="form-outline mb-6 mb-4">
                         <label class="form-label fs-6 fw-medium"
-                            for="katasandiSiswa">{{ __('Kata Sandi Siswa*') }}</label>
+                            for="katasandiSiswa">{{ __('Kata Sandi Siswa') }}<span class="text-danger">*</span></label>
                         <input type="password" id="password" name="password"
                             class="form-control form-control-lg @error('password') is-invalid @enderror rounded border-secondary"
                             placeholder="Masukan Kata Sandi" autocomplete="current-password" required />
@@ -76,7 +76,7 @@
             <p class="opacity-75 justify-content-center d-flex align-items-center mt-auto">Design by ©idn student</p>
         </div>
 
-        <div class="col-md-8 img-fluid responsive-image-layout" style="
+        <div class="col-xl-8 d-none d-lg-block col-lg-6 img-fluid responsive-image-layout" style="
         background: linear-gradient(#0fa95737, #0fa95737), url('img/openning.png') center;
         background-size: cover;">
 
