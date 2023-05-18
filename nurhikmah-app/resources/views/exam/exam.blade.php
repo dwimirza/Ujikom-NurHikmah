@@ -46,23 +46,6 @@
 
         <script type="text/javascript">
     var timeoutHandle;
-     // Function to store the selected answers in local storage
-
-    // Call the storeSelectedAnswers() function when a radio button is clicked
-    const radios = document.querySelectorAll('input[type="radio"]');
-    radios.forEach(radio => {
-        radio.addEventListener('click', () => {
-            storeSelectedAnswers();
-        });
-    });
-
-    // Call the retrieveSelectedAnswers() function on page load
-    window.addEventListener('DOMContentLoaded', () => {
-        retrieveSelectedAnswers();
-        // Call storeSelectedAnswers() to ensure the current selection is saved on page load
-        storeSelectedAnswers();
-    });
-
 
     function countdown(minutes) {
         var seconds = 60;
@@ -96,7 +79,7 @@
         alert("Only 5 minutes left!");
     }
 
-    // script for disable url 
+    // script for disable url
     var time = '<?php echo $exam->waktu; ?>';
     var realtime = time * 60000;
 
