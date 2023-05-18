@@ -18,7 +18,6 @@ class CreateExamTable extends Migration
             $table->timestamps();
             $table->string('materi');
             $table->integer('jumlah_soal')->default(0);
-            $table->string('uniqueid');
             $table->string('waktu');
         });
     }

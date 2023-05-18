@@ -81,7 +81,7 @@
                     <p class="my-2">{{$ujian->waktu}} Minute</p>
                 </td>
                 <td class="fs-6 opacity-75">
-                    @if($ujian)
+                    @if($ujian->jumlah_soal == 0)
                         <p class="my-2">Belum ada soal</p>
                     @else
                         <p class="my-2">{{ $ujian->jumlah_soal }}</p>
