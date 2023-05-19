@@ -38,16 +38,6 @@
                         <input type="hidden" readonly name="student_id" value="{{ Auth::user()->id }}">
                         @endauth
                     </fieldset>
-
-
-
-            <!-- <input type="hidden" name="question" value="{{$questions->question}}">
-            <input type="hidden" name="true_answer" value="{{$questions->answer}}">
-            <input name="answer" value="{{$questions->choice}}" type="radio"> {{$questions->jawaban_a}} <br>
-            <input name="answer" value="{{$questions->choice}}" type="radio">{{$questions->jawaban_b}}<br>
-            <input name="answer" value="{{$questions->choice}}" type="radio">{{$questions->jawaban_c}}<br>
-            <input name="answer" value="{{$questions->jawaban_a}}" type="radio">{{$questions->jawaban_d}}<br> -->
-
                 </div>
             </div>
             @endforeach
@@ -89,7 +79,7 @@
         alert("Only 5 minutes left!");
     }
 
-    // script for disable url 
+    // script for disable url
     var time = '<?php echo $exam->waktu; ?>';
     var realtime = time * 60000;
 
