@@ -103,7 +103,7 @@
             <p class="fs-2 fw-bold mb-4">Selamat Datang Di Website PPDB SMPIT Nur-Hikmah</p>
             <p class="fs-6 opacity-75 mb-4">Buat akun untuk mengikuti ujian Penerimaan Peserta Didik Baru</p>
 
-            <form action="{{ __('Register') }}" method="post">
+            <form method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="row">
 
@@ -130,7 +130,7 @@
                           </div>
                     </div>
 
-                      <div class="form-outline mb-6 mb-4">
+                      <div class="form-outline mb-4">
                         <label for="password" class="form-label fs-6 fw-medium">{{ __('Password') }}<span class="text-danger">*</span></label>
                         <input id="password" type="password" class="form-control form-control-lg @error('password') is-invalid @enderror rounded border-secondary" name="password" placeholder="Masukan Kata Sandi" required autocomplete="new-password">
 
@@ -141,23 +141,23 @@
                                 @enderror
                       </div>
 
-                      <div class="form-outline mb-6 mb-4">
+                      <div class="form-outline mb-4">
                         <label for="password-confirm" class="form-label fs-6 fw-medium">{{ __('Confirm Password') }}<span class="text-danger">*</span></label>
                         <input id="password-confirm" type="password" class="form-control form-control-lg rounded border-secondary" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi Kata Sandi">
                       </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                             {{ old('remember') ? 'checked' : '' }}>
                         <label for="remember" class="form-check-label">{{ __('Ingat Kata Sandi') }}</label>
-                    </div>
+                    </div> -->
 
+                </div>
+                <div class="d-flex justify-content-center pt-3">
+                    <button type="submit" class="btn btn-success btn-lg ms-2 w-100">{{ __('Register') }}</button>
                 </div>
             </form>
 
-            <div class="d-flex justify-content-center pt-3">
-                <button type="submit" class="btn btn-success btn-lg ms-2 w-100">{{ __('Register') }}</button>
-            </div>
 
             <p class="opacity-75 justify-content-center d-flex align-items-center mt-auto">Design by ©idn student</p>
         </div>
