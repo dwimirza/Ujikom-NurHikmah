@@ -36,11 +36,14 @@ Route::get('/login', 'App\Http\Controllers\SiswaLoginController@showLoginForm')-
 Route::post('/login', 'App\Http\Controllers\SiswaLoginController@login')->name('login.post');
 Route::post('/logout', 'App\Http\Controllers\SiswaLoginController@logout')->name('logout');
 
+
+
+
 /** for middleware **/
-Route::group(["middleware" => ["auth", "level.check:admin"]], function(){
+Route::group(["middleware" => ["auth",'examaccess', "level.check:admin",]], function(){
     Route::resource('/exam', 'App\Http\Controllers\ExamController');
 });
 
-Route::group(["middleware" => ["auth", "level.check:siswa"]], function(){
+Route::group(["middleware" => ["auth",'examaccess', "level.check:siswa"]], function(){
     Route::resource('/exam', 'App\Http\Controllers\ExamController');
 });

@@ -34,6 +34,7 @@
                         <input type="hidden" readonly name="correct_answer_{{$questions->id}}"
                             value="{{$questions->jawaban}}">
                         <input type="hidden" readonly name="materi" value="{{$exam->materi}}">
+                        <input type="hidden" readonly name="exam_id" value="{{$exam->id}}">
                         @auth
                         <input type="hidden" readonly name="student_id" value="{{ Auth::user()->id }}">
                         @endauth
