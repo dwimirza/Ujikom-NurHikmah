@@ -14,7 +14,7 @@ class CreateJawabanTable extends Migration
     public function up()
     {
         Schema::create('jawaban', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->timestamps();
             $table->integer('student_id')->unsigned();
             $table->string('question');

@@ -120,6 +120,7 @@
                             value="{{$questions->jawaban}}">
 
                         <input type="hidden" readonly name="materi" value="{{$exam->materi}}">
+                        <input type="hidden" readonly name="exam_id" value="{{$exam->id}}">
                         @auth
                         <input type="hidden" readonly name="student_id" value="{{ Auth::user()->id }}">
                         @endauth
@@ -165,7 +166,6 @@
 
 
 
-
     function countdown(minutes) {
         var seconds = 60;
         var mins = minutes
@@ -198,7 +198,7 @@
         alert("Only 5 minutes left!");
     }
 
-    // script for disable url 
+    // script for disable url
     var time = '<?php echo $exam->waktu; ?>';
     var realtime = time * 60000;
 
