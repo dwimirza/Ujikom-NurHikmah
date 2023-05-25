@@ -37,7 +37,7 @@ class JawabanController extends Controller
     public function store(Request $request)
     {
 
-            $questions = Question::all();
+            $questions = Question::where('id_exam', $request->get('id_exam'))->get();
             $score = 0;
             foreach ($questions as $question) {
                 $jawaban = new Jawaban();
@@ -56,6 +56,7 @@ class JawabanController extends Controller
 
         
             return redirect('exam');
+            // dd($question);
         
         
 

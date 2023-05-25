@@ -33,7 +33,7 @@
             @csrf
             <div class="row">
 
-                <div class="form-outline mb-6 mb-4">
+                <div class="form-outline mb-4">
                     <label class="form-label fs-6 fw-medium" for="name">{{ __('Nama') }}<span class="text-danger">*</span></label>
                     <input type="text" id="name" name="name" class="form-control form-control-lg rounded
                             @error('name') is-invalid @enderror border-secondary" placeholder="Masukan Nama"
@@ -46,7 +46,7 @@
                     @enderror
                 </div>
 
-                <div class="form-outline mb-6 mb-4">
+                <div class="form-outline mb-4">
                     <label class="form-label fs-6 fw-medium"
                            for="katasandiSiswa">{{ __('Kata Sandi Siswa') }}<span class="text-danger">*</span></label>
                     <input type="password" id="password" name="password"
