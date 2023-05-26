@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Jawaban;
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Exam;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Submission;
 
 class JawabanController extends Controller
 {
@@ -34,10 +38,10 @@ class JawabanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request )
     {
 
-            $questions = Question::all();
+            $questions = Question::where('id_exam', $request->get('id_exam'))->get();
             $score = 0;
             foreach ($questions as $question) {
                 $jawaban = new Jawaban();
@@ -54,8 +58,30 @@ class JawabanController extends Controller
             }
 
 
+            $user = Auth::user();
+            $examId = $request->input('exam_id');
+            $submission = Submission::where('user_id', $user->id)
+                          ->where('exam_id', $examId )
+                          ->first();
+
+            if(!$submission){
+            $submission = new Submission();
+            $submission->user_id = $user->id;
+            $submission->exam_id = $examId;
+            $submission->submitted = true;
+            $submission->save();
+
+            return redirect('exam')->with('success', 'Exam submitted successfully');
+            }
+            else{
+                return redirect('exam')->with('error', 'You have already submitted the exam');
+            }
+
+
+
         
             return redirect('exam');
+            // dd($question);
         
         
 

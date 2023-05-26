@@ -37,36 +37,43 @@
         :root {
             --bg-layout: #FAFAF9;
             --bg-green-nh: #0FA958;
-            --bg-card:#EDEDED;
+            --bg-card: #EDEDED;
         }
 
         * {
             font-family: 'Poppins', sans-serif;
         }
 
-        .distance-gap{
+        .distance-gap {
             gap: 20px;
         }
 
-        .padding-app-exam{
-            padding-top:3rem;
+        .padding-app-exam {
+            padding-top: 3rem;
         }
 
         @media screen and (max-width:580px) {
 
-        .hidden-part{
-            display: none;
+            .hidden-part {
+                display: none;
+            }
+
+            .distance-gap {
+                gap: 10px;
+            }
+
+            .padding-app-exam {
+                padding-top: 1rem;
+            }
+
+            
+
         }
 
-        .distance-gap{
-            gap: 10px;
-        }
-
-        .padding-app-exam{
-            padding-top: 1rem;
-        }
-
-        }
+        .warna-pencet {
+                font-size: 1.2em;
+                background: #11c5c6 !important
+            }
 
     </style>
 
@@ -84,8 +91,8 @@
     </nav>
 
     <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
+    </main>
 </body>
 
 </html>
