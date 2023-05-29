@@ -71,7 +71,7 @@ class JawabanController extends Controller
             $submission->submitted = true;
             $submission->save();
 
-            return redirect('exam')->with('success', 'Exam submitted successfully');
+            return redirect('thank-you')->with('success', 'Exam submitted successfully');
             }
             else{
                 return redirect('exam')->with('error', 'You have already submitted the exam');
@@ -130,5 +130,10 @@ class JawabanController extends Controller
     public function destroy(Jawaban $jawaban)
     {
        //
+    }
+
+    public function thankYou()
+    {
+        return view('exam.redirect');
     }
 }

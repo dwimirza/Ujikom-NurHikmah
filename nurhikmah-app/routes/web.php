@@ -46,4 +46,5 @@ Route::group(["middleware" => ["auth", "level.check:admin",]], function(){
 
 Route::group(["middleware" => ["auth",'examaccess', "level.check:siswa"]], function(){
     Route::resource('/exam', 'App\Http\Controllers\ExamController');
+    Route::get('/thank-you', 'App\Http\Controllers\JawabanController@thankYou')->name('thank-you');
 });
