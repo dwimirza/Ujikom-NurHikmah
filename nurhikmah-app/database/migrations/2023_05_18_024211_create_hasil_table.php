@@ -16,16 +16,16 @@ class CreateHasilTable extends Migration
         Schema::create('hasil', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('id_user')->unsigned();
-            $table->integer('id_materi')->unsigned();
-            $table->integer('id_score')->unsigned();
+            $table->integer('id_user')->unsigned()->nullable();
+            $table->integer('id_materi')->unsigned()->nullable();
+//            $table->integer('id_score')->unsigned();
             $table->string('student_name');
             $table->string('materi');
             $table->integer('score');
 
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_materi')->references('id')->on('exam');
-            $table->foreign('id_score')->references('id')->on('jawaban');
+//            $table->foreign('id_score')->references('id')->on('jawaban');
         });
     }
 
