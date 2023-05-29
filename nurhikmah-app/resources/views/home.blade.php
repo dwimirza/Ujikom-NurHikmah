@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Landing Page For to take the exam for prospective new students" />
     <meta name="author" content="Haritsdev0981" />
+    <meta name="author" content="dwimirza">
+    <link rel="icon" href="{{asset('img/favicon.png')}}">
     <title>Daftar SMPIT</title>
 
 
