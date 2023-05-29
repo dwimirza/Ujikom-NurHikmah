@@ -78,23 +78,12 @@ class JawabanController extends Controller
             $hasil->score = $score;
             $hasil->save();
 
-        return redirect('thank-you')->with('success', 'Exam submitted successfully');
-            }
-            else{
-                return redirect('exam')->with('error', 'You have already submitted the exam');
-            }
-
+            return redirect('thank-you')->with('success', 'Exam submitted successfully');
+        } else {
+            return redirect('exam')->with('error', 'You have already submitted the exam');
+        }
+        return redirect('exam');
         // dd($question);
-            
-
-
-
-        
-            return redirect('exam');
-            // dd($question);
-        
-        
-
     }
 
     /**
@@ -141,9 +130,7 @@ class JawabanController extends Controller
     {
         //
     }
-
-    public function thankYou()
-    {
+    public function thankYou(){
         return view('exam.redirect');
     }
 }
