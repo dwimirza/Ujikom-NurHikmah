@@ -40,7 +40,7 @@ Route::post('/logout', 'App\Http\Controllers\SiswaLoginController@logout')->name
 
 
 /** for middleware **/
-Route::group(["middleware" => ["auth",'examaccess', "level.check:admin",]], function(){
+Route::group(["middleware" => ["auth", "level.check:admin",]], function(){
     Route::resource('/exam', 'App\Http\Controllers\ExamController');
 });
 

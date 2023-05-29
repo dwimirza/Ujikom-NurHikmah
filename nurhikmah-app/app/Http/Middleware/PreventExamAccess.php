@@ -33,7 +33,7 @@ class PreventExamAccess
             ->exists();
 
         if ($hasSubmittedExam) {
-            return redirect('/exam')
+            return redirect()->route('exam.index')
                 ->with('error', 'You have already submitted the exam.');
         }
     }
