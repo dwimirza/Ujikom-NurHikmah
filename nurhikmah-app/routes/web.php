@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get("", function (){
+   return view("home");
+});
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/exam', 'App\Http\Controllers\ExamController@index');
@@ -29,7 +33,7 @@ Route::resource('jawaban', 'App\Http\Controllers\JawabanController');
 /** for admin page **/
 Route::get('/panel/login/', 'App\Http\Controllers\AdminLoginController@showLoginForm')->name('panel.login');
 Route::post('/panel/login', 'App\Http\Controllers\AdminLoginController@login')->name('panel.login.post');
-Route::post('/panel/logout', 'App\Http\Controllers\AdminLoginController@logout')->name('panel.logout');
+Route::post('/panel/logoutAdmin', 'App\Http\Controllers\AdminLoginController@logout')->name('panel.logoutAdmin');
 
 /** for siswa page **/
 Route::get('/login', 'App\Http\Controllers\SiswaLoginController@showLoginForm')->name('login');

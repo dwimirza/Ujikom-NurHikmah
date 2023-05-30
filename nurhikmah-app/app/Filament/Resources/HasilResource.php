@@ -29,7 +29,7 @@ class HasilResource extends Resource
         return $table
             ->columns([
                 TextColumn::make("student_name")->label("Nama siswa"),
-                TextColumn::make("materi")->label("Materi"),
+                TextColumn::make("materi")->label("Materi")->searchable(),
                 TextColumn::make("score")->label("Score")
             ])
             ->filters([
