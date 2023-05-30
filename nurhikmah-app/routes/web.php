@@ -42,6 +42,7 @@ Route::post('/logout', 'App\Http\Controllers\SiswaLoginController@logout')->name
 
 
 
+Route::get('/thank-you', 'App\Http\Controllers\JawabanController@thankYou')->name('thank-you');
 
 /** for middleware **/
 Route::group(["middleware" => ["auth", "level.check:admin",]], function(){

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Submission;
 use App\Models\Exam;
+use App\Models\User;
 
 class PreventExamAccess
 {
@@ -26,6 +27,7 @@ class PreventExamAccess
 
     if ($exam) {
         $user = Auth::user();
+        $student = User::where('role', 'siswa')->get();
 
         // Check if the user has already submitted the exam
         $hasSubmittedExam = $user->submissions()
@@ -33,8 +35,10 @@ class PreventExamAccess
             ->exists();
 
         if ($hasSubmittedExam) {
-            return redirect()->route('exam.index')
+            if($user->role == 'siswa'){ 
+            return redirect('thank-you')
                 ->with('error', 'You have already submitted the exam.');
+            }
         }
     }
 
