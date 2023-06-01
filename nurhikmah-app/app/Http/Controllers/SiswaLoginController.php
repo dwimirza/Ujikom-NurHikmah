@@ -21,7 +21,7 @@ class SiswaLoginController extends Controller
 
         $credentials = $request->only('name', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect('/exam');
+            return redirect('/');
         }
 
         return redirect()->back()->withInput($request->only('name', 'remember'))->withErrors([
