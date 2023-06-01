@@ -1,6 +1,7 @@
 @extends('exam.navexam')
 
 @section('title', 'Soal ' . $exam->materi)
+@section('tabtitle', '' . $exam->materi)
 
 @section('content')
 

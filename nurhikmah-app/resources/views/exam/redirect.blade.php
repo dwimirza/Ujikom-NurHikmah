@@ -18,7 +18,7 @@
         <i class="fa-regular fa-10x fa-circle-check mb-12" style="color: #ffffff;"></i>
         <h1 class="d-flex align-items-center justify-content-center text-center">Thank You!</h1>
         <h2>Silahkan tunggu hasilnya lewat email/Whatsapp anda</h2>
-        <a href="{{route('home')}}" class="btn fs-4">Back to Home</a>
+        <a href="{{url('/')}}" class="btn fs-4">Back to Home</a>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,6 +1,7 @@
 @extends('exam.navexam')
 
 @section('title', 'Buat Soal Ujian')
+@section('tabtitle', 'Buat Soal')
 
 @section('content')
 <section class="Soal d-flex justify-content-center align-items-center padding-app-exam" style="justify-self: center;">   
@@ -9,7 +10,7 @@
                 @csrf
                 <div class="w-100">
                   <div class="form-group" id="card-body" >
-                    <label class="col-form-label" for="formGroupExampleInput2" style="font-size: 1.5em; font-weight: 600; margin-bottom: 10px;">Buat Pertanyaan 1</label>
+                    <label class="col-form-label" for="formGroupExampleInput2" style="font-size: 1.5em; font-weight: 600; margin-bottom: 10px;">Buat Pertanyaan</label>
                     <input type="text" name="soal[]" class="form-control mb-3" style="min-height: 50px;" placeholder="Write your question here...">
                     <div class="answer ">
                         <div class="d-flex justify-content-center mb-3 gap-1">
@@ -60,7 +61,7 @@
             `
             <div class="form-group" id="card-body">
             <div id="card-question">
-                    <label class="col-form-label" for="formGroupExampleInput2" style="font-size: 1.5em; font-weight: 600; margin-bottom: 10px;">Buat Pertanyaan 1</label>
+                    <hr style="border-top: 2px solid black;">
                     <input type="text" name="soal[]" class="form-control mb-3" style="min-height: 50px;" placeholder="Write your question here...">
                     <div class="answer ">
                         <div class="d-flex justify-content-center mb-3 gap-1">
