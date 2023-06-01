@@ -44,9 +44,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav gap-4  text-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('siswa.store')}}">PPDB</a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="{{route('siswa.store')}}">PPDB</a>--}}
+{{--                    </li>--}}
                     <li class="nav-item">
                         <a class="nav-link" href="#tahapan">Tahapan Seleksi</a>
                     </li>
@@ -54,7 +54,10 @@
                         <a class="nav-link" href="#footer">Kontak</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                        <a class="nav-link" href="{{route('login')}}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('register')}}">Register</a>
                     </li>
                 </ul>
             </div>

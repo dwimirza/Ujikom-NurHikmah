@@ -29,11 +29,13 @@ class SiswaLoginController extends Controller
         ]);
     }
 
-//    public function logout()
-//    {
-//        auth()->guard('siswa')->logout();
-//        return redirect()->route('auth.login');
-//    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 
     /**
      * Display a listing of the resource.
