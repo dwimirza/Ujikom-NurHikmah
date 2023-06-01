@@ -15,7 +15,6 @@ class CreateHasilTable extends Migration
     {
         Schema::create('hasil', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->integer('id_user')->unsigned()->nullable();
             $table->integer('id_materi')->unsigned()->nullable();
 //            $table->integer('id_score')->unsigned();
@@ -23,6 +22,7 @@ class CreateHasilTable extends Migration
             $table->string('materi');
             $table->integer('score');
 
+            $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_materi')->references('id')->on('exam');
 //            $table->foreign('id_score')->references('id')->on('jawaban');

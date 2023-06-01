@@ -15,13 +15,13 @@ class CreateJawabanTable extends Migration
     {
         Schema::create('jawaban', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->integer('student_id')->unsigned();
             $table->string('question');
             $table->string('answer');
             $table->string('correct_answer');
             $table->string('materi')->nullable();
             $table->integer('score')->default(0);
+            $table->timestamps();
             $table->foreign('student_id')->references('id')->on('users');
 
         });

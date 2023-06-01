@@ -46,15 +46,15 @@ class JawabanResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('student_id'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
                 Tables\Columns\TextColumn::make('question'),
                 Tables\Columns\TextColumn::make('answer'),
                 Tables\Columns\TextColumn::make('correct_answer'),
                 Tables\Columns\TextColumn::make('materi'),
                 Tables\Columns\TextColumn::make('score'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime(),
             ])
             ->filters([
                 //
@@ -66,14 +66,14 @@ class JawabanResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -81,5 +81,5 @@ class JawabanResource extends Resource
             'create' => Pages\CreateJawaban::route('/create'),
             'edit' => Pages\EditJawaban::route('/{record}/edit'),
         ];
-    }    
+    }
 }
