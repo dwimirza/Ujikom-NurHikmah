@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eg: Create Exam</title>
+    <link rel="icon" href="{{asset('img/favicon.png')}}">
+    <title>@yield('tabtitle', 'Buat Materi')</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
@@ -37,11 +38,43 @@
         :root {
             --bg-layout: #FAFAF9;
             --bg-green-nh: #0FA958;
+            --bg-card: #EDEDED;
         }
 
         * {
             font-family: 'Poppins', sans-serif;
         }
+
+        .distance-gap {
+            gap: 20px;
+        }
+
+        .padding-app-exam {
+            padding-top: 3rem;
+        }
+
+        @media screen and (max-width:580px) {
+
+            .hidden-part {
+                display: none;
+            }
+
+            .distance-gap {
+                gap: 10px;
+            }
+
+            .padding-app-exam {
+                padding-top: 1rem;
+            }
+
+            
+
+        }
+
+        .warna-pencet {
+                font-size: 1.2em;
+                background: #11c5c6 !important
+            }
 
     </style>
 
@@ -59,8 +92,10 @@
     </nav>
 
     <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
+    </main>
 </body>
+
+</html>
 
 </html>

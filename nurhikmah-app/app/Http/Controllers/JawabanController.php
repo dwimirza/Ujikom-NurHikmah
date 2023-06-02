@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hasil;
 use App\Models\Jawaban;
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Exam;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Submission;
 
 class JawabanController extends Controller
 {
@@ -31,43 +36,60 @@ class JawabanController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        // Jawaban::create([
-        //     'student_id' => $request->input('student_id'),
-        //     'question' => $request->input('question'),
-        //     'answer' => $request->input('answer'),
-        //     'correct_answer' => $request->input('correct_answer'),
-        // ]);
-    
-        // return redirect('exam');
-
-
-        
-            $questions = Question::all();
-        
-            foreach ($questions as $question) {
-                $jawaban = new Jawaban();
-                $jawaban->student_id = $request->input('student_id');
-                $jawaban->question = $question->soal;
-                $jawaban->answer = $request->input('answer_' . $question->id);
-                $jawaban->correct_answer = $question->jawaban;
-                $jawaban->save();
+        $questions = Question::where('id_exam', $request->get('id_exam'))->get();
+        $score = 0;
+        foreach ($questions as $question) {
+            $jawaban = new Jawaban();
+            $jawaban->student_id = $request->input('student_id');
+            $jawaban->question = $question->soal;
+            $jawaban->answer = $request->input('answer_' . $question->id);
+            $jawaban->correct_answer = $question->jawaban;
+            if ($jawaban->answer == $jawaban->correct_answer) {
+                $score++;
             }
-        
-            return redirect('exam');
-        
-        
+            $jawaban->score = $score;
+            $jawaban->materi = $request->input('materi');
+            $jawaban->save();
+        }
 
+        $user = Auth::user();
+        $examId = $request->input('exam_id');
+        $submission = Submission::where('user_id', $user->id)
+            ->where('exam_id', $examId)
+            ->first();
+
+        if (!$submission) {
+            $submission = new Submission();
+            $submission->user_id = $user->id;
+            $submission->exam_id = $examId;
+            $submission->submitted = true;
+            $submission->save();
+
+            $materi = $request->input("materi");
+            $hasil = Hasil::where("student_name", $user->name)->where("materi", $materi)->first();
+            $hasil = new Hasil();
+            $hasil->materi = $materi;
+            $hasil->student_name = $user->name;
+            $hasil->score = $score;
+            $hasil->save();
+
+            return redirect('thank-you')->with('success', 'Exam submitted successfully');
+        } else {
+            return redirect('exam')->with('error', 'You have already submitted the exam');
+        }
+        return redirect('exam');
+        // dd($question);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param \App\Models\Jawaban $jawaban
      * @return \Illuminate\Http\Response
      */
     public function show(Jawaban $jawaban)
@@ -78,7 +100,7 @@ class JawabanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param \App\Models\Jawaban $jawaban
      * @return \Illuminate\Http\Response
      */
     public function edit(Jawaban $jawaban)
@@ -89,8 +111,8 @@ class JawabanController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Jawaban $jawaban
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Jawaban $jawaban)
@@ -101,11 +123,14 @@ class JawabanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jawaban  $jawaban
+     * @param \App\Models\Jawaban $jawaban
      * @return \Illuminate\Http\Response
      */
     public function destroy(Jawaban $jawaban)
     {
         //
+    }
+    public function thankYou(){
+        return view('exam.redirect');
     }
 }

@@ -22,11 +22,12 @@ class ExamController extends Controller
             $exam = Exam::where('materi', 'LIKE', '%' .$request->search. '%')->get()->all();
 
         } else {
-            $exam = Exam::all();
+        $exam = Exam::all();
 
         }
-        return view('exam.index', compact('exam', 'value'));
-    }
+    return view('exam.index', compact('exam', 'value'));
+
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -51,8 +52,8 @@ class ExamController extends Controller
         $exam = Exam::create(
             [
                 'materi' => $request->input('materi'),
-                'uniqueid' => $request->input('uniqueid'),
                 'waktu' => $request->input('waktu'),
+                'jumlah_soal' => 0,
             ]
             );
 
@@ -107,6 +108,7 @@ class ExamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Exam::destroy($id);
+        return redirect('exam');
     }
 }

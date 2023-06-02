@@ -56,6 +56,10 @@ class QuestionController extends Controller
             // $question = Question::create(}
 
             $id = $request->input('id_exam');
+            $exam = Exam::find($request->input('id_exam'));
+            $exam->jumlah_soal = $exam->soal()->count();
+            $exam->save();
+            return redirect ('exam');
 
     
             // $selectLength=Exam::where('id','=',$id)->value('jumlah_pertanyaan');

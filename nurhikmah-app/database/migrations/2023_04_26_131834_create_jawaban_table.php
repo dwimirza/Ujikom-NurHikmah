@@ -14,13 +14,14 @@ class CreateJawabanTable extends Migration
     public function up()
     {
         Schema::create('jawaban', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
             $table->integer('student_id')->unsigned();
             $table->string('question');
             $table->string('answer');
             $table->string('correct_answer');
-
+            $table->string('materi')->nullable();
+            $table->integer('score')->default(0);
+            $table->timestamps();
             $table->foreign('student_id')->references('id')->on('users');
 
         });
