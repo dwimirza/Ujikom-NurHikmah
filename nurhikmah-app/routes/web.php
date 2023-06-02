@@ -30,11 +30,6 @@ Route::resource('siswa', 'App\Http\Controllers\SiswaController');
 Route::resource('question', 'App\Http\Controllers\QuestionController');
 Route::resource('jawaban', 'App\Http\Controllers\JawabanController');
 
-/** for admin page **/
-Route::get('/panel/login/', 'App\Http\Controllers\AdminLoginController@showLoginForm')->name('panel.login');
-Route::post('/panel/login', 'App\Http\Controllers\AdminLoginController@login')->name('panel.login.post');
-Route::post('/panel/logoutAdmin', 'App\Http\Controllers\AdminLoginController@logout')->name('panel.logoutAdmin');
-
 /** for siswa page **/
 Route::get('/login', 'App\Http\Controllers\SiswaLoginController@showLoginForm')->name('login');
 Route::post('/login', 'App\Http\Controllers\SiswaLoginController@login')->name('login.post');
