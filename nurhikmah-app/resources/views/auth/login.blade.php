@@ -67,12 +67,13 @@
                     </div>
 
                 </div>
+
                 <div class="d-flex justify-content-center pt-3">
                     <button class="btn btn-success btn-lg ms-2 w-100" value="submit">{{ __('Mulai Ujian') }}</button>
                 </div>
+
             </form>
 
-            
             <p class="opacity-75 justify-content-center d-flex align-items-center mt-auto">Design by ©idn student</p>
         </div>
 
