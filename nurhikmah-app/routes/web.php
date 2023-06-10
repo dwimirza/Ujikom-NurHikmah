@@ -23,7 +23,6 @@ Route::get("/", function (){
 });
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/exam', 'App\Http\Controllers\ExamController@index');
 Route::get('/question', 'App\Http\Controllers\QuestionController@index');
 Route::delete('/exam/{id}', 'App\Http\Controllers\ExamController@destroy');
 Route::resource('siswa', 'App\Http\Controllers\SiswaController');
