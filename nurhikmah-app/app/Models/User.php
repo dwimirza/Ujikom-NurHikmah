@@ -17,6 +17,8 @@ class User extends Authenticatable implements FilamentUser
 
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = "users";
+
     /**
      * The attributes that are mass assignable.
      *

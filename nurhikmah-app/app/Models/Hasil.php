@@ -10,4 +10,10 @@ class Hasil extends Model
     use HasFactory;
     protected $table = 'hasil';
     protected $guarded = [];
+
+    public function create(): bool
+    {
+        return false;
+    }
 }
+

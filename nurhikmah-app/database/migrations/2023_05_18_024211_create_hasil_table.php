@@ -22,6 +22,7 @@ class CreateHasilTable extends Migration
             $table->string('materi');
             $table->integer('score');
 
+            $table->boolean("lulus")->nullable();
             $table->timestamps();
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_materi')->references('id')->on('exam');

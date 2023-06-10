@@ -19,7 +19,7 @@ class JawabanResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    protected static ?string $navigationLabel = 'Jawaban Ujian'; 
+    protected static ?string $navigationLabel = 'Jawaban Ujian';
 
     public static function form(Form $form): Form
     {
@@ -55,8 +55,8 @@ class JawabanResource extends Resource
                 Tables\Columns\TextColumn::make('score'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+//                Tables\Columns\TextColumn::make('updated_at')
+//                    ->dateTime(),
             ])
             ->filters([
                 //
@@ -83,5 +83,9 @@ class JawabanResource extends Resource
             'create' => Pages\CreateJawaban::route('/create'),
             'edit' => Pages\EditJawaban::route('/{record}/edit'),
         ];
+    }
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }

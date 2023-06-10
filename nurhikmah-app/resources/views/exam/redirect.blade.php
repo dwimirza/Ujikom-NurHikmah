@@ -10,14 +10,14 @@
 
     <!--Icon fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
 
 </head>
 <body class="bg-success">
     <div class="text-content text-white text-center d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
-        <i class="fa-regular fa-10x fa-circle-check mb-12" style="color: #ffffff;"></i>
+        <i class="fa-regular fa-bounce fa-10x fa-circle-check mb-1" style="color: #ffffff;"></i>
         <h1 class="d-flex align-items-center justify-content-center text-center">Thank You!</h1>
-        <h2>Silahkan tunggu hasilnya lewat email/Whatsapp anda</h2>
+        <h2>Silahkan tunggu hasilnya lewat Email/WhatsApp anda</h2>
         <a href="{{url('/')}}" class="btn fs-4">Back to Home</a>
     </div>
 
